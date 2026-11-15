@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta content="width=device-width,initial-scale=1" name="viewport">
+<meta content="#004b89" name="theme-color">
+<meta content="Kontinenten" name="description">
+<title>Kontinenten</title>
+<style>
+:root{--blue:#004b89;--blue-dark:#073255;--sky:#cde7f8;--paper:#faf9f4;--ink:#112537;--line:#b9c6cd;--orange:#f5bd52;--muted:#526574}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--blue);color:var(--ink);font-family:Georgia,'Times New Roman',serif}button,a{font:inherit}a{color:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #f5bd52;outline-offset:4px}
+.shell{max-width:1320px;margin:auto;background:var(--paper);min-height:100vh;box-shadow:0 12px 60px #002d5160}.micro{font:700 11px/1.4 Arial,sans-serif;text-transform:uppercase;letter-spacing:1.4px}.topbar{background:var(--sky);padding:12px 35px;display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid var(--blue-dark)}.masthead{padding:26px 24px 23px;text-align:center}.masthead h1{font-weight:400;font-size:clamp(3.4rem,9vw,7.4rem);letter-spacing:-.075em;line-height:.95;margin:0}.masthead p{font-size:16px;font-style:italic;margin:16px 0 0;color:var(--muted)}.edition{margin:0 auto 12px;color:var(--blue);letter-spacing:3px}
+nav{position:sticky;top:0;z-index:5;background:var(--blue-dark);border-top:2px solid var(--blue-dark);border-bottom:3px solid var(--blue)}.nav-inner{display:flex;justify-content:center;gap:5px;padding:0 15px}.nav-btn{border:0;background:none;color:white;padding:17px 25px;font:700 12px Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase;transition:background .15s}.nav-btn:hover,.nav-btn.active{background:var(--sky);color:var(--blue-dark)}.content{padding:38px 42px 52px}.page{display:none}.page.active{display:block}.kicker{font:800 11px Arial,sans-serif;color:var(--blue);text-transform:uppercase;letter-spacing:2px}.eyebrow{font:800 11px Arial,sans-serif;color:var(--blue);text-transform:uppercase;letter-spacing:2px}.status{font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:1.3px;background:#ffe5ab;padding:7px 9px;display:inline-block}.headline{font-size:clamp(3.1rem,6.2vw,6.5rem);font-weight:400;line-height:.96;letter-spacing:-.055em;margin:12px 0 18px}.lede{font-size:clamp(17px,2.2vw,23px);line-height:1.48;color:#364d5d;max-width:790px}.section-heading{border-top:5px solid var(--blue-dark);border-bottom:1px solid var(--line);padding:15px 0 17px;margin:36px 0 22px;display:flex;align-items:end;justify-content:space-between;gap:20px}.section-heading h2{font:800 clamp(23px,3vw,34px) Arial,sans-serif;text-transform:uppercase;letter-spacing:-1px;margin:0}.section-heading span{font:700 11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}.feature{display:grid;grid-template-columns:1.35fr .8fr;gap:38px;padding:26px 0 34px;border-bottom:1px solid var(--line)}.feature-image{background:var(--blue);min-height:390px;position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;padding:25px;color:white}.feature-image:after{content:"";position:absolute;width:290px;height:290px;border:60px solid #ffffff26;border-radius:50%;right:-85px;top:58px}.feature-image b{font:800 clamp(64px,10vw,146px) Arial,sans-serif;line-height:.85;letter-spacing:-10px;opacity:.9;z-index:1}.feature-image .small{align-self:flex-start;border:1px solid #ffffff9c;padding:10px 12px;z-index:1}.feature h3{font-size:clamp(30px,3.6vw,50px);font-weight:400;line-height:1.02;letter-spacing:-2px;margin:12px 0 15px}.feature p{font-size:17px;line-height:1.5;color:#445968}.metadata{font:700 11px/1.6 Arial,sans-serif;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin:17px 0}.read-link{display:inline-block;border:0;border-bottom:2px solid var(--blue);background:none;color:var(--blue);padding:8px 0;text-align:left;font:800 12px Arial,sans-serif;text-transform:uppercase;letter-spacing:1px}.read-link:hover{color:var(--blue-dark);border-color:var(--blue-dark)}.stamp{background:var(--orange);color:var(--blue-dark);font:800 11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;padding:10px 12px;display:inline-block;transform:rotate(-3deg)}.note{border-left:4px solid var(--blue);background:#eaf3f9;padding:18px 21px;font:14px/1.55 Arial,sans-serif;color:#28465a}.two-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}.slot{border:1px solid var(--line);padding:25px;background:#fffdf8;min-height:230px}.slot h3{font-size:31px;font-weight:400;line-height:1.05;margin:16px 0 10px}.slot p{color:var(--muted);line-height:1.55;font-size:15px}.blue-band{margin-top:44px;background:var(--blue-dark);color:white;padding:40px 45px;display:flex;justify-content:space-between;gap:30px;align-items:center}.blue-band p{font-size:clamp(27px,4vw,50px);line-height:1.08;letter-spacing:-1px;max-width:740px;margin:0}.blue-band .micro{color:#b6e3ff}.page-header{border-bottom:5px solid var(--blue-dark);padding:10px 0 28px}.page-header h2{font-weight:400;letter-spacing:-.06em;font-size:clamp(62px,9vw,112px);line-height:.95;margin:12px 0}.page-header p{font-size:19px;line-height:1.5;max-width:730px;margin:0}.entry{border-bottom:1px solid var(--line);padding:31px 0;display:grid;grid-template-columns:170px 1fr;gap:35px}.entry h3{font-size:clamp(29px,4vw,49px);font-weight:400;letter-spacing:-1.8px;line-height:1.05;margin:10px 0}.entry p{font-size:17px;line-height:1.5;max-width:750px;color:#425967}.entry .metadata{margin:4px 0}.article-view{display:none}.article-view.active{display:block}.back{background:none;border:0;padding:0 0 15px;color:var(--blue);font:800 12px Arial,sans-serif;text-transform:uppercase;letter-spacing:1px}.article-header{border-top:5px solid var(--blue-dark);padding-top:26px;max-width:980px}.article-header h2{font-size:clamp(45px,7vw,86px);line-height:.98;letter-spacing:-.055em;font-weight:400;margin:14px 0 24px}.article-header .lede{font-size:22px}.article-body{max-width:770px;margin:35px auto 0;font-size:19px;line-height:1.78}.article-body p{margin:0 0 25px}.article-body p:first-child::first-letter{font-size:65px;line-height:.8;float:left;padding:10px 8px 0 0;color:var(--blue)}.source-box{margin:35px auto;max-width:770px;background:#edf4f8;padding:24px;border-left:4px solid var(--blue);font:14px/1.65 Arial,sans-serif}.source-box a{color:var(--blue);overflow-wrap:anywhere}.footer{background:var(--blue-dark);color:white;padding:33px 42px;display:flex;justify-content:space-between;gap:28px;align-items:end}.footer strong{font-size:29px;font-weight:400}.footer p{font:12px/1.6 Arial,sans-serif;color:#c7dce8}.small-print{font:12px/1.6 Arial,sans-serif;color:var(--muted)}
+@media(max-width:760px){.topbar{padding:10px 16px}.topbar span:last-child{display:none}.masthead{padding:28px 12px}.masthead h1{font-size:clamp(46px,11vw,78px)}.masthead p{font-size:13px}.nav-inner{justify-content:space-around;gap:0;padding:0}.nav-btn{padding:15px 8px;font-size:10px;letter-spacing:.5px}.content{padding:22px 19px 35px}.feature,.two-cards,.entry{grid-template-columns:1fr}.feature{gap:23px}.feature-image{min-height:245px}.feature-image b{font-size:90px}.entry{gap:9px}.headline{font-size:50px}.blue-band{padding:26px;display:block}.blue-band .micro{display:block;margin-top:15px}.footer{padding:26px 20px;display:block}.section-heading span{font-size:9px}.article-body{font-size:18px}}
+
+/* Kontinenten: compact responsive logo masthead */
+.social-topbar {
+    background: #8eb1d0;
+    color: #073255;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font: 700 11px/1.5 Arial, sans-serif;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+}
+.social-links { display: flex; flex-wrap: wrap; gap: 18px; }
+.social-links a { color: inherit; text-decoration: none; }
+.social-links a:hover { text-decoration: underline; }
+.masthead {
+    height: auto;
+    padding: 12px 24px 16px;
+    background: #8eb1d0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.continental-logo {
+    display: block;
+    width: min(100%, 800px);
+    max-width: 100%;
+    height: auto;
+    max-height: 170px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+@media (max-width: 760px) {
+    .social-topbar { padding: 8px 14px; flex-wrap: wrap; justify-content: center; text-align: center; }
+    .social-links { justify-content: center; gap: 12px; }
+    .masthead { padding: 11px 12px 13px; }
+    .continental-logo { width: min(100%, 650px); max-height: 115px; }
+}
+
+/* Compact social label, attached directly to the navigation */
+.social-strip {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0 30px;
+    background: var(--paper);
+}
+.social-strip .social-topbar {
+    box-sizing: border-box;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0;
+    padding: 11px 19px;
+    background: #e6f0f7;
+    color: var(--blue-dark);
+    border: 1px solid #b9c6cd;
+    border-top: 0;
+    border-radius: 0 0 22px 0;
+    box-shadow: none;
+    transform: none;
+    position: static;
+}
+.social-strip .social-topbar::before { content: none; }
+.social-strip .social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 17px;
+}
+.social-strip .social-links a {
+    font: 700 11px/1.4 Arial, sans-serif;
+    letter-spacing: .75px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--blue-dark);
+    white-space: nowrap;
+}
+.social-strip .social-links a:hover,
+.social-strip .social-links a:focus-visible {
+    text-decoration: underline;
+    color: var(--blue);
+}
+@media (max-width: 600px) {
+    .social-strip { padding: 0 10px; }
+    .social-strip .social-topbar { padding: 10px 13px; }
+    .social-strip .social-links { gap: 7px 12px; }
+    .social-strip .social-links a { font-size: 10px; }
+}
+
+.source-box ul{padding-left:20px;margin:12px 0 0}.source-box li{margin:7px 0}.source-box a:focus-visible{outline-offset:2px}
+
+/* Homepage: two matching editorial cards */
+#home .two-cards > .entry {
+    display: block;
+    min-height: 230px;
+    padding: 25px;
+    border: 1px solid var(--line);
+    background: #fffdf8;
+}
+#home .two-cards > .entry h3 {
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: 0;
+    margin: 16px 0 10px;
+}
+#home .two-cards > .entry p {
+    color: var(--muted);
+    line-height: 1.55;
+    font-size: 15px;
+}
+#home .two-cards > .entry .metadata { margin: 17px 0; }
+#home .two-cards > .entry > div:first-child { margin-bottom: 0; }
+/* Consistent single divider between category intro and listings */
+#opinions > .page-header,
+#interviews > .page-header,
+#reports > .page-header {
+    border-bottom: 5px solid var(--blue-dark);
+}
+#interviews > .page-header + .section-heading,
+#reports > .page-header + .section-heading {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 19px;
+}
+/* The first opinion starts under the same single divider. */
+#opinions > .page-header + .entry { padding-top: 31px; }
+
+@media (max-width: 760px) {
+  #home .two-cards > .entry { padding: 25px; }
+}
+
+/* Volunteer sign-up and newsletter */
+.volunteer-intro{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(240px,.8fr);gap:45px;padding:35px 0 20px}
+.volunteer-intro h3{font-size:clamp(30px,4.2vw,52px);font-weight:400;line-height:1.06;letter-spacing:-1.6px;margin:12px 0 18px}
+.volunteer-intro p{font-size:17px;line-height:1.62;color:#425967}
+.volunteer-aside{background:#e8f2f8;border-top:4px solid var(--blue-dark);padding:23px 25px;align-self:start}
+.volunteer-aside p{font-size:18px;color:var(--ink)}
+.volunteer-aside .micro{color:var(--blue)}
+.volunteer-form{max-width:900px;margin:24px 0 55px;padding:30px;background:#fffdf8;border:1px solid var(--line)}
+.form-topline{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:26px}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.form-field{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;font:700 12px/1.5 Arial,sans-serif;letter-spacing:.35px;color:var(--blue-dark)}
+.form-field input,.form-field select,.form-field textarea,.newsletter-controls input{width:100%;min-width:0;border:1px solid #a5b8c5;border-radius:0;background:white;padding:13px 14px;color:var(--ink);font:16px/1.4 Arial,sans-serif;letter-spacing:0}
+.form-field textarea{resize:vertical;min-height:90px}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus,.newsletter-controls input:focus{outline:2px solid #004b89;outline-offset:2px}
+.consent{display:flex;gap:12px;align-items:flex-start;margin:4px 0 25px;font:13px/1.55 Arial,sans-serif;color:#425967}
+.consent input{accent-color:var(--blue);margin-top:3px;width:17px;height:17px;flex:0 0 17px}
+.form-submit{background:var(--blue-dark);border:2px solid var(--blue-dark);color:#fff;padding:14px 23px;font:800 12px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase}
+.form-submit:hover{background:var(--blue)}
+.form-notice{font:12px/1.6 Arial,sans-serif;color:var(--muted);margin:14px 0 0}
+.newsletter-band{margin-top:44px;background:var(--blue-dark);color:white;padding:42px 45px;display:grid;grid-template-columns:1fr minmax(280px,.9fr);gap:35px;align-items:center}
+.newsletter-copy .micro{color:#b6e3ff}.newsletter-copy h2{font-size:clamp(34px,4.3vw,54px);font-weight:400;letter-spacing:-1.5px;line-height:1.05;margin:10px 0 12px}.newsletter-copy p{font:15px/1.6 Arial,sans-serif;color:#d6e8f5;margin:0}
+.newsletter-form label{display:block;font:700 11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:9px}
+.newsletter-controls{display:flex;gap:8px;align-items:stretch}.newsletter-controls input{flex:1}.newsletter-controls button{background:#f5bd52;color: #073255;border:0;padding:12px 15px;font:800 11px/1.3 Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap}.newsletter-controls button:hover{background:white}
+.newsletter-form p{font:12px/1.5 Arial,sans-serif;color:#c7dce8;margin:9px 0 0}
+@media(max-width:760px){.volunteer-intro,.field-grid,.newsletter-band{grid-template-columns:1fr}.volunteer-intro{gap:14px}.volunteer-form{padding:20px}.newsletter-band{padding:27px 22px}.newsletter-controls{flex-direction:column}.newsletter-controls button{padding:14px}}
+
+/* November issue additions */
+#home > .headline {color:#003763;}
+.about-intro{max-width:860px;padding:28px 0 10px;}
+.about-intro p{font-size:19px;line-height:1.7;color:#334e60;margin:0 0 22px;}
+.about-intro h3{font:800 12px/1.5 Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue-dark);margin:29px 0 14px;}
+.board-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0 40px;max-width:820px;}
+.board-member{background:#fffdf8;border:1px solid var(--line);border-top:4px solid #003763;padding:21px 23px;}
+.board-member strong{font-size:23px;font-weight:400;}
+.board-member p{font:12px Arial,sans-serif;color:var(--muted);margin:8px 0 0;}
+.article-body p strong{font-weight:700;}
+@media(max-width:760px){.board-list{grid-template-columns:1fr}}
+
+#home .two-cards{grid-template-columns:repeat(3,minmax(0,1fr));}
+#home .two-cards > .slot,#home .two-cards > .entry{min-width:0;}
+#home .two-cards h3{font-size:clamp(23px,2.4vw,31px);}
+@media(max-width:850px){#home .two-cards{grid-template-columns:1fr;}}
+
+/* Better newspaper navigation: full desktop tabs; compact, accessible mobile menu */
+.mobile-menu-toggle{display:none}
+@media (max-width:900px){
+  #site-nav{position:sticky;top:0;z-index:30}
+  #site-nav .mobile-menu-toggle{width:100%;display:flex;align-items:center;gap:12px;min-height:54px;padding:12px 19px;border:0;background:var(--blue-dark);color:white;text-align:left}
+  #site-nav .mobile-menu-label{font:800 10px/1.2 Arial,sans-serif;text-transform:uppercase;letter-spacing:1.5px;color:#b6d5e8}
+  #site-nav .mobile-menu-current{font:700 15px/1.2 Georgia,serif;margin-right:auto}
+  #site-nav .mobile-menu-icon{font:23px/1 Arial,sans-serif}
+  #site-nav .nav-inner{display:none;position:absolute;left:0;right:0;top:100%;background:var(--blue-dark);padding:6px 12px 12px;box-shadow:0 15px 24px #001d3280;flex-direction:column;flex-wrap:nowrap;gap:2px;max-height:calc(100dvh - 64px);overflow-y:auto}
+  #site-nav.menu-open .nav-inner{display:flex}
+  #site-nav .nav-btn{display:block;width:100%;text-align:left;min-height:45px;padding:13px 15px;font:700 12px/1.35 Arial,sans-serif;letter-spacing:1px;border-left:3px solid transparent}
+  #site-nav .nav-btn.active{border-left-color:var(--orange);background:#cde7f8;color:var(--blue-dark)}
+  #site-nav .nav-btn:hover{background:#b6d5e8;color:var(--blue-dark)}
+  #site-nav .mobile-menu-toggle:focus-visible,#site-nav .nav-btn:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}
+}
+@media(max-width:420px){
+  #site-nav .mobile-menu-toggle{padding:11px 14px}
+  .content{padding-left:16px;padding-right:16px}
+  .page-header h2{font-size:clamp(42px,12vw,65px)}
+  .headline{font-size:clamp(36px,11vw,50px)}
+  .article-header h2{font-size:clamp(36px,10vw,54px)}
+  .newsletter-band{margin-left:0;margin-right:0}
+}
+</style>
+<link href="./kontinenten-k-icon.png?v=2" rel="icon" type="image/png"></head>
+<body><div class="shell">
+<header class="masthead">
+<img alt="Kontinenten" class="continental-logo" height="401" src="./kontinenten-logo.png?v=2" width="1588">
+</header>
+<nav aria-label="Main navigation" id="site-nav" class="">
+<button class="mobile-menu-toggle" type="button" aria-controls="primary-nav-links" aria-expanded="false">
+  <span class="mobile-menu-label">Sections</span><span class="mobile-menu-current">Home</span><span class="mobile-menu-icon" aria-hidden="true">☰</span>
+</button>
+<div class="nav-inner" id="primary-nav-links"><button class="nav-btn active" data-page="home" aria-current="page">Home</button><button class="nav-btn" data-page="opinions">Opinions</button><button class="nav-btn" data-page="interviews">Interviews</button><button class="nav-btn" data-page="reports">Reports</button><button class="nav-btn" data-page="write-for-us" type="button">Write for us</button>
+<button class="nav-btn" data-page="about" type="button">About us</button></div></nav><div class="social-strip"><div class="social-topbar">
+<div class="social-links">
+<a href="https://www.instagram.com" rel="noopener noreferrer" target="_blank">Instagram</a>
+<a href="https://www.linkedin.com" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+</div>
+</div></div>
+<main class="content" id="main-content">
+<section aria-label="Home" class="page active" id="home">
+<h2 class="headline">Europe is complicated.<br>So are we.</h2>
+<div class="section-heading"><h2>The main story</h2></div>
+<div class="feature"><div aria-label="Graphic illustration in university blue with bold EU letters" class="feature-image" role="img"><span class="micro small">The EU debate</span><b>EU<br>27</b><span class="stamp">One veto too many?</span></div><article><span class="eyebrow">Opinion · European politics</span><h3>Will the European Union abandon unanimous voting?</h3><p>With Viktor Orbán gone, can the EU move beyond the foreign-policy veto? Inês Matias examines the case for reform—and the political obstacles ahead.</p><p>By Inês Matias</p><button class="read-link" data-article="ines">Read the opinion →</button></article></div>
+<div class="section-heading"><h2>Also on our radar</h2></div><div class="two-cards"><article class="entry">
+<div>
+<span class="eyebrow">Opinion · Society &amp; Student Life</span>
+</div>
+<div>
+<h3>In defense of speaking sh*t Swedish</h3>
+<p>Why learning the language alone cannot solve the loneliness of an increasingly atomized society.</p>
+<div class="metadata">
+            5 min read
+        </div>
+<button class="read-link" data-article="swedish">
+            Read the full opinion →
+        </button>
+</div>
+</article><article class="slot"><div class="eyebrow">Report · European Economy</div>
+<h3>Europe First? Inside the new "Made in EU" push</h3>
+<p>Europe wants to favour domestic manufacturing and low-carbon production. Will the Industrial Accelerator Act survive the politics of 27 member states?</p>
+<div class="metadata">5 min read</div>
+<button class="read-link" data-article="made-eu" type="button">Read the report →</button></article><article class="slot"><span class="eyebrow">Opinion · Politics &amp; student life</span><h3>Why Politics?</h3><p>From rent to the price of a bus ticket, politics shapes more of our lives than we might think.</p><div class="metadata">5 min read</div><button class="read-link" data-article="politics" type="button">Read the opinion →</button></article></div>
+<section aria-label="Newsletter signup" class="newsletter-band">
+<div class="newsletter-copy"><span class="micro">A little Europe in your inbox</span><h2>Stay in the loop.</h2></div>
+<form class="newsletter-form" id="newsletter-form"><label for="newsletter-email">Your email address</label><div class="newsletter-controls"><input autocomplete="email" id="newsletter-email" name="email" placeholder="you@example.com" required="" type="email"><button type="submit">Request updates</button></div><p aria-live="polite" class="form-notice" id="newsletter-notice" role="status"></p></form>
+</section>
+</section>
+<section aria-label="Opinions" class="page" id="opinions"><header class="page-header"><span class="kicker">Thoughts worth arguing about</span><h2>Opinions.</h2><p>The occasional uncomfortable questions.</p> </header>
+<article class="entry"><div><span class="eyebrow">European politics &amp; democracy</span></div><div><h3>Will the European Union abandon unanimous voting?</h3><p>With Viktor Orbán gone, can the EU move beyond the foreign-policy veto? Inês Matias examines the case for reform—and the political obstacles ahead.</p><div class="metadata">Inês Matias · Opinion</div><button class="read-link" data-article="ines">Read the opinion →</button></div></article><article class="entry"><div><span class="eyebrow">Society &amp; student life</span></div><div><h3>In defense of speaking sh*t Swedish</h3><p>Why learning the language alone cannot solve the loneliness of an increasingly atomized society.</p><div class="metadata">Opinion</div><button class="read-link" data-article="swedish">Read the opinion →</button></div></article><article class="entry"><div><span class="eyebrow">Politics &amp; everyday life</span></div><div><h3>Why Politics?</h3><p>From rent to the price of a bus ticket, politics shapes more of our lives than we might think.</p><div class="metadata">Opinion</div><button class="read-link" data-article="politics">Read the opinion →</button></div></article></section>
+<section aria-label="Interviews" class="page" id="interviews"><header class="page-header"><span class="kicker">The people behind the headlines</span><h2>Interviews.</h2><p>Less talking about people, more talking to them.</p></header><div class="section-heading"><h2>Our interview desk</h2><span>In development</span></div><div class="note"><strong>No published interviews yet.</strong></div><div class="two-cards" style="margin-top:25px"><article class="slot"><p></p><span class="status">Coming soon</span></article><article class="slot"><p></p><span class="status">Coming soon</span></article></div></section><section aria-label="Write for us" class="page" id="write-for-us">
+<header class="page-header">
+<span class="kicker">Join the newsroom</span>
+<h2>Write for us.</h2>
+<p>Have a perspective on Europe? A story you think we should cover? Or simply the curiosity to find out? We want to hear from you.</p>
+</header>
+<div class="volunteer-intro">
+<div>
+<span class="eyebrow">A newspaper built by students</span>
+<h3>Good stories start with someone asking a question.</h3>
+<p>Kontinenten is looking for volunteer writers, interviewers, researchers, editors and creative contributors. You don't need an impressive CV or previous journalism experience. Bring your ideas and a willingness to learn.</p>
+<p>Clicking “Prepare my application” will open a ready-to-send email in your email app, so you can review it before sending.</p>
+</div>
+<aside class="volunteer-aside">
+<span class="micro">What's welcome</span>
+<p>Unexpected perspectives. Thoughtful arguments. Stories about life on campus.</p>
+</aside>
+</div>
+<form class="volunteer-form" id="volunteer-form">
+<div class="form-topline"><span class="eyebrow">Contributor application</span><span class="small-print">* Required fields</span></div>
+<div class="field-grid">
+<label class="form-field">Your name *<input autocomplete="name" maxlength="100" name="name" placeholder="First and last name" required=""></label>
+<label class="form-field">Email address *<input autocomplete="email" maxlength="160" name="email" placeholder="you@example.com" required="" type="email"></label>
+<label class="form-field">Where are you based?<input maxlength="120" name="location" placeholder="City / university (optional)"></label>
+<label class="form-field">How would you like to contribute? *
+        <select name="role" required=""><option disabled="" selected="" value="">Select an area</option><option>Opinion writing</option><option>Reporting and research</option><option>Interviews</option><option>Editing / fact-checking</option><option>I'm open to anything</option></select>
+</label>
+</div>
+<label class="form-field">What would you like to write or work on? *<textarea maxlength="2000" name="ideas" placeholder="Tell us about a story, topic or idea you would like to explore..." required="" rows="5"></textarea></label>
+<label class="consent"><input name="consent" required="" type="checkbox"><span>I agree to share this information with Kontinenten's editorial team for the purpose of responding to my application. *</span></label>
+<button class="form-submit" type="submit">Prepare my application <span aria-hidden="true"></span></button>
+<p aria-live="polite" class="form-notice" id="volunteer-notice" role="status"></p></form>
+</section><section aria-label="About Kontinenten" class="page" id="about"><header class="page-header"><span class="kicker">Who we are</span><h2>About us.</h2><p>An independent student-led newspaper for the conversations Europe needs.</p></header><div class="about-intro"><h3>Our mission</h3><div id="mission-copy"><p>Our goal as a newspaper publication is to give students a chance to speak and express themselves freely. We hope to activate that youthful energy that exists in us all and provide an opportunity for anybody to speak openly about a particular issue.</p><p>That is why Kontinenten is not a regular publication, but something built around collaboration rather than a strictly top-down approach, with a focus on society, culture, student life, and broader European politics. Something along the lines of ‘‘grassroots journalism’’.</p><p>Here, you can investigate an issue that deserves attention, bring overlooked experiences into view, write an opinion piece, or report on what is happening across Europe. </p><p>For too long have our understanding of the world been mired by short videos online. Perhaps it’s time to learn from each other, engage in critical thinking, and even build some journalistic experience along the way. </p><h3>Is it political?</h3><p>Of course it is, but that doesn’t mean our publication supports and advocates for a particular narrative. Kontinenten is shaped by its contributors. Bring your perspective, make your case, but also be prepared to have it questioned. The point is not that we all agree, but that we give one another something worth thinking about.</p></div><h3>Editorial board</h3><p>Meet the people helping bring Kontinenten to life.</p></div><div class="board-list"><div class="board-member"><strong>Darin Salah</strong><p>Editorial board</p></div><div class="board-member"><strong>Inês Sofia</strong><p>Editorial board</p></div><div class="board-member"><strong>Marvin — surname to be added</strong><p>Editorial board</p></div><div class="board-member"><strong>Yahia Arfaoui</strong><p>Editorial board</p></div></div></section>
+<section aria-label="Reports" class="page" id="reports">
+<header class="page-header"><span class="kicker">Evidence over vibes</span><h2>Reports.</h2><p>Examining the policies, decisions and developments shaping Europe's future.</p></header>
+<div class="section-heading"><h2>From the reporting desk</h2></div>
+<article class="entry">
+<div><span class="eyebrow">European Economy &amp; Industrial Policy</span></div>
+<div><h3>Europe First? Inside the new "Made in EU" push</h3>
+<p>Europe wants to favour domestic manufacturing and low-carbon production. Will the Industrial Accelerator Act survive the politics of 27 member states?</p>
+<div class="metadata">Report · European industry · 5 min read</div>
+<button class="read-link" data-article="made-eu" type="button">Read the full report →</button></div></article>
+</section>
+<section aria-label="Opinion article" class="article-view" id="article-ines"><button class="back" id="back-button">← Back to Opinions</button><header class="article-header"><span class="eyebrow">Opinion · European Union</span> <h2>Will the European Union abandon unanimous voting?</h2><p class="lede">With Viktor Orbán gone, the European Union can speak with one voice on foreign policy.</p><p class="metadata">Written by Inês Matias · Opinion on European foreign policy</p></header>
+
+<div class="article-body"><p>The exit of Hungarian Prime Minister, Viktor Orbán, has created a unique opportunity for Europe to abandon a system that has long paralyzed their foreign policy. The European Union operates under a unanimous voting system, where one country has complete veto power; however, the departure of Viktor Orbán, following sixteen years of governance defined by the abuse of the veto, marks the end of a systemic obstruction to the European Union’s collective action. Reports indicate that this shift presents a unique opportunity to transition from unanimous voting to qualified majority voting within the Common Foreign and Security Policy (CFSP). </p><p>Originally conceived to safeguard the national sovereignty of Member States, the veto has instead been used as a tool by governments facing rule of law issues to pursue self-serving agendas. Orbán frequently leveraged this power to block sanctions over human rights violations and derail aid packages for Ukraine, creating a culture of self-censorship within the European External Action Service, which increasingly resorted to ambiguous statements to bypass potential blockades. Given the intergovernmental nature of the CFSP, this reform must be treated as an absolute priority on the European Council’s political agenda.</p><p><strong>As the bloc looks toward future enlargement, keeping a rule where a single country can hold the rest of the continent hostage is no longer viable. </strong></p><p>This state of affairs has profound implications for European integration. The current decision-making framework, designed for a more homogenous post-Cold War order, has rendered itself dysfunctional in a 27-member bloc exposed to a volatile international system. Conceiving an enlarged Union in which a single country can paralyze collective action is simply untenable. Consequently, this reform must precede further EU enlargements, which is a notable reason why the progress made toward Montenegro’s accession and the political shift in Hungary present the ideal opportunity.</p><p>The report points to the “passerelle clauses” provided for in Article 31 of the Treaty on European Union (TEU) as the most effective mechanism for introducing qualified majority voting in the CFSP, without requiring a Treaty revision. However, the legal feasibility of this proposal remains low, as its activation itself demands unanimity and the non-opposition of national parliaments, rendering the process inherently complex. The focus thus shifts from the legal sphere to that of political will. In the absence of the pretext of Hungarian obstructionism, the central question emerges as to whether Heads of State will choose to collaborate within a joint CFSP or opt instead for isolated action and the Union’s geopolitical irrelevance.</p><p><strong>The real test will be whether smaller states can overcome their fear of being bullied by larger powers. </strong></p><p>This transition becomes even more difficult to achieve when considering that the current unanimity model encourages parallel negotiations, a tactic frequently employed by Orbán, who strategically paralyzed the council to extract leverage in unrelated policy areas. With his departure, other member states may as well opt to adopt similar strategies. Accordingly, the requirement of unanimity disincentivizes compromise in pursuit of the common interest. This is particularly evident among smaller member states, which fear losing the veto as a safeguard against the hegemony of the Franco-German axis under a qualified majority voting system.</p><p>The post-Orbán scenario will test whether the paralysis stemmed solely from Hungary or from a structural reluctance among member states to delegate sovereignty in the CFSP. Regardless, a reform is urgently needed to stem the loss of the EU’s reputation in international standing. A fragmented Europe undermines its deterrence power, making it clear to global powers such as Russia, the U.S., and China that the bloc poses no threat because it remains divided internally.</p></div>
+</section>
+<section aria-label="Report on the Industrial Accelerator Act" class="article-view" id="article-made-eu">
+<button class="back" data-back-to="reports" type="button">← Back to Reports</button>
+<header class="article-header">
+<span class="eyebrow">Report · European Economy &amp; Industrial Policy</span>
+<h2>Europe First? Inside the new "Made in EU" push</h2>
+<p class="lede">The Industrial Accelerator Act is Europe’s attempt to strengthen its industrial base and reduce external dependencies.</p>
+<p class="metadata">Kontinenten · 5 min read</p>
+</header>
+<div class="article-body"><p><strong>Economic competitiveness and sovereignty currently stand as one of the greatest challenges facing the European Union</strong></p><p>This forms the central theme of the Draghi Report “The future of European competitiveness”. In this report, Mario Draghi explicitly warns that the EU is losing ground in critical technological and industrial sectors, accumulating severe external dependencies that expose the bloc to geopolitical vulnerabilities. </p><p>While other global powers have adopted aggressive state sponsored strategies, such as China’s “Made in China 2025” or the US Inflation Reduction Act (IRA), Europe has historically lacked a strong, clear rule on Community preference. Simultaneously, EU companies face demanding sustainability targets and high energy costs that foreign competitors do not share. In response to this diagnosis, the European Commission has proposed “Made in EU” as a part of a legislative package known as the Industrial Accelerator Act (IAA). This initiative represents an effort to strengthen the competitiveness of local industries against producers abroad, while accelerating the decarbonisation of crucial sectors such as steel, aluminium and electric vehicles, and clean technology such as batteries, solar, wind, and nuclear. </p><p><strong>Europe puts itself first: this law will now prioritize homegrown goods for public projects and force mega-foreign investors to keep the majority of their jobs on European soil. </strong></p><p>The “Made in EU” framework sets a minimum local content requirements for publicly funded projects, obliging national governments and municipalities to prioritise goods manufactured within the EU. This marks a shift away from an approach based exclusively on the lowest market price, redirecting public spending strategically toward the economic security of a true European industrial policy. </p><p>At the same time, the proposed law seeks to impose strict conditions on foreign direct investment (FDI) exceeding 100 million euros in strategic sectors where a non-EU country holds more than 40% of global manufacturing capacity. Under these rules, foreign investors would have to commit to employing at least 50% of European workers, ensuring high employment rates and added value within European territory. </p><p>The Made in EU status is set to automatically cover all 27 Member States as well as the remaining countries integrated into the Single Market such as Norway, Iceland and Liechtenstein. Furthermore, the framework could extend to other nations that hold Free Trade Agreements with the union, strictly grounded in the principle of reciprocity. </p><p><strong>Before this vision becomes reality, it has to survive a brutal political process where national governments and 27 different agendas threaten to tear the plan apart. </strong></p><p>As a legislative proposal from the European Commission, the text still requires negotiation and approval from both the European Parliament and the Council of the European Union before becoming law. Reaching an agreement will be challenging, given that Member States have differing views on the policy and may try to impose their own agendas. A joint approach with harmonised rules applied equally across the EU is therefore crucial to prevent Single Market fragmentation and safeguard credibility with investors.  </p></div>
+<div class="source-box"><strong>Sources &amp; editorial context. </strong>The Industrial Accelerator Act remains a proposal, not enacted legislation. Its scope and thresholds may change during negotiations.
+<ul>
+<li><a href="https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp260211~2822ae9612.en.html" rel="noopener noreferrer" target="_blank">European Central Bank - speech, 11 February 2026</a></li>
+<li><a href="https://www.carbonbrief.org/qa-what-the-eus-new-industry-and-made-in-europe-rules-mean-for-climate-action" rel="noopener noreferrer" target="_blank">Carbon Brief - What the new rules mean for climate action</a></li>
+<li><a href="https://www.reuters.com/world/uk/what-is-brussels-made-eu-law-why-is-britain-worried-2026-09-22/" rel="noopener noreferrer" target="_blank">Reuters - What is Brussels' Made in EU law?</a></li>
+<li><a href="https://commission.europa.eu/news-and-media/news/commission-proposes-new-measures-boost-eu-industry-and-jobs-2026-03-04_en" rel="noopener noreferrer" target="_blank">European Commission - Industrial Accelerator Act proposal, 4 March 2026</a></li>
+</ul></div>
+</section><section aria-label="Opinion on language and community" class="article-view" id="article-swedish"><button class="back" data-back-to="opinions" type="button">← Back to Opinions</button><header class="article-header"><span class="eyebrow">Opinion · Society &amp; Student Life</span><h2>In defense of speaking sh*t Swedish</h2><p class="lede">Learning the language matters. But meaningful integration requires something more than fluency.</p><p class="metadata">Kontinenten · Opinion</p></header><div class="article-body"><p>It's a common experience for a migrant or exchange student from a completely foreign culture to feel a little out of touch in the cold climate of Sweden, or maybe even all of West Europe. Now of course the weather is freezing cold, but that's not what I'm talking about. It seems as if the culture and rules of socialization perfectly reflect that climate. </p><p>We have all heard this before, "it's hard to make friends here" or "I have spent years here and still feel alone". We try to accommodate in multiple ways, believing that once we learn the language perfectly, we can finally integrate. We are imagining integration as entry into one big family: learn the language, understand the customs, and eventually someone will pull up a chair.  Reality is, even after ranking highest in the duolingo leaderboard, something will still feel not quite right: like you are out of place. Now of course learning the language is essential. People will view you differently and perhaps even infantilize you to some degree if you speak broken swedish, but the problem that we are forgetting is that most Swedes also feel this way, and that is because we are not one big family where everyone can integrate to by speaking the language flawlessly, but rather a few isolated units scattered here and there in an increasingly atomized society. </p><p>For example, most events in university campuses are organized in a way that solely focuses on the event itself rather than actually building a community. You can go to the campus pub, or to a halloween event, and still go home feeling empty and alone like nothing drastically has changed about your social life, even after exchanging numbers or social media with others. That is because the event was over, the drinking was done, and the objective completed. Most already enter with their own pre-established friend groups, and any attempt at actually trying to make a new friend more often than not has some ulterior motive, like boosting your linkedin numbers up and expanding your social network for future benefit. But even the small things, like talking to somebody on the bus or the tram, is considered a huge violation of their privacy, and that is precisely the question I want to ask about the ideal of independence we so often admire, not only in Sweden, but in the wider Western European context: when does respecting others space become leaving one another alone? </p><p>Of course I am not suggesting that event organisers should always manufacture friendships on day one, or that strangers owe us conversation. But building a community means more than bringing people into the same room for an evening. It could also mean bringing people together around shared interests and giving them regular reasons to meet, not only through fun weekly events, but through shared projects and difficulties to change something together. That is why clubs are so important, but equally important is for those clubs not to forget their real purpose of actually fostering these communities, and not solely for building your portfolio.</p><p>But again, even the small things matter. Perhaps the answer is not always entering another event. Sometimes it is asking someone from the last one to lunch, or to invite them home and maybe even cook dinner together. So for those who feel alone, whether you are an immigrant or native, it’s important to keep in mind that the wall between us isn't linguistic, it's cultural, and that culture can be changed from small actions that foster a sense of community and belonging. Things that push past a hyper-independent comfort zone that tells us to keep to ourselves. We are so afraid of embarrassing ourselves, but really, deep down we all like to be treated that way: treated in a way that makes us feel like we matter. </p></div></section><section aria-label="Opinion on why politics matters" class="article-view" id="article-politics"><button class="back" data-back-to="opinions" type="button">← Back to Opinions</button><header class="article-header"><span class="eyebrow">Opinion · Politics &amp; Everyday Life</span><h2>Why Politics?</h2><p class="lede">Politics might be messy, but it also shapes the everyday questions we cannot avoid.</p><p class="metadata">Kontinenten · Opinion</p></header><div class="article-body"><p>Politics is disgusting. It really is. It is a cesspool of the worst and most extreme traits imaginable, like ego, smugness, superiority, and hate. It brings out the worst in people, turning an otherwise calm person into a self righteous hero who has never spoken louder in their life. It’s no wonder it acts as a magnet for people who suffer from a sense of inferiority or perhaps depression: it is the perfect vehicle for bringing out the passions but also provides immense purpose. So It's fair to say politics is disgusting, and even fairer to not be interested. But then we start talking about rent. About whether we can afford to move out. About the job we need alongside our studies, or whether taking an unpaid internship is really an opportunity. Past all that toxic sludge, you really need those passions to actually get things done. </p><p>We tend to picture politics as something happening elsewhere. In parliament, on television, or in a comment section. There are people who do politics, and then there are the rest of us, trying to get through the week. But getting through the week is where a lot of it happens. What should the costs of your education be for example? What jobs and internships should you pursue? Why is the bus always delayed? Even things you never conceive as being political have some political undertones to them. How we communicate with each other, for example. What we consider polite. Whose concerns we take seriously, and who gets dismissed as too sensitive. Even the words we use to describe our own struggles: if you cannot afford your rent, is it a personal failure? One tells you to change your habits, the other says something around you needs to change, and now before we even offer a solution, the way we explain the problem already shapes what we think needs fixing. </p><p>Sometimes it seems as though we take a lot of the things around us for granted, which is fair because most things like water and electricity are provided by proper institutions, and these institutions have become so automatic and expansive that they get easily overlooked. And that includes political institutions that give us our rights. </p><p>But none of this organizes itself. The providing of those things require a set of values. Who should have access, and who should pay? Why and how should we choose to provide them? Answering those questions means making choices and value judgements. Eventually those choices become the norm and we stop noticing them as choices. They are just “how things work”. Accepting them is political neutrality, but when you begin questioning them, that’s when you sound political. </p><p>Speaking of which, what even is political neutrality? Neutrality means remaining impartial, abstaining from conflict and not taking sides. One could argue that neutrality implies a default position of sorts, and the default position is essentially standing with the norms of society: the same norms mentioned earlier. These are how the generations before you chose to answer those questions that eventually became normalized. Just because something is ‘‘the norm’’ or ‘‘how things work’’ doesn’t mean it’s a bad thing, but it’s simply important to keep in mind that being neutral is ultimately, still an opinion. It doesn’t necessarily mean you agree with how things just are, but you aren’t challenging them either, and if you actively choose not to then you end up agreeing with them. It’s always fun to play these little philosophy games sometimes. Why do I have these beliefs? Did I come up with it myself, or did someone else tell me that this is worth believing, or that this is the opinion I should have? </p><p>I remember having a conversation with someone who argued that Jesus, the humble carpenter of Nazareth, might as well have been some leftwing radical of his day who started a political movement. Looking at it that way, even religion is political! It was an archaic form of politics: the politics of that time that has become mystified and turned into what we call religion. Perhaps our politics will become like that in the future too.</p><p>This is not an argument against political neutrality, but rather showing what that actually implies. So while politics may be disgusting, it also allows us to function as a society, and to challenge norms that may be proven harmful for many. It may bring out our inner smugness, ego, or superiority, but it also brings out the other passions, like love, bravery, and empathy. It is dangerous, but it is also a passionate subject that helps the generations after us. After all, politics really is everywhere.</p></div></section>
+</main><footer class="footer"><div><strong>Kontinenten</strong><p>A publication by Brännpunkt.<br></p></div><div><p>Gothenburg, Sweden<br>Independent student journalism<br>© 2026 Kontinenten</p></div></footer>
+</div>
+<script>
+const tabs = [...document.querySelectorAll('.nav-btn')];
+const pages = [...document.querySelectorAll('.page')];
+const articles = [...document.querySelectorAll('.article-view')];
+const validPages = ['home', 'opinions', 'interviews', 'reports', 'write-for-us', 'about'];
+const validArticles = ['ines', 'made-eu', 'swedish', 'politics'];
+let previousPage = 'opinions';
+
+// Mobile menu: keyboard accessible, closes after navigation and outside clicks.
+const siteNav = document.getElementById('site-nav');
+const menuToggle = siteNav.querySelector('.mobile-menu-toggle');
+const menuCurrent = siteNav.querySelector('.mobile-menu-current');
+const labelForPage = page => tabs.find(b => b.dataset.page === page)?.textContent.trim() || 'Home';
+function closeMobileMenu(){
+  siteNav.classList.remove('menu-open');
+  menuToggle.setAttribute('aria-expanded','false');
+  siteNav.querySelector('.mobile-menu-icon').textContent = '☰';
+}
+menuToggle.addEventListener('click',()=>{
+  const open = siteNav.classList.toggle('menu-open');
+  menuToggle.setAttribute('aria-expanded',String(open));
+  siteNav.querySelector('.mobile-menu-icon').textContent = open ? '✕' : '☰';
+});
+document.addEventListener('click',event=>{if(!siteNav.contains(event.target))closeMobileMenu()});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeMobileMenu();menuToggle.focus()}});
+window.addEventListener('resize',()=>{if(window.innerWidth>900)closeMobileMenu()});
+
+function navigate(section, updateHash = true) {
+  const isArticle = validArticles.includes(section);
+  if (!isArticle && !validPages.includes(section)) return;
+  pages.forEach(page => page.classList.toggle('active', !isArticle && page.id === section));
+  articles.forEach(article => article.classList.toggle('active', isArticle && article.id === 'article-' + section));
+  if (!isArticle) previousPage = section;
+  closeMobileMenu();
+  const activeTab = isArticle ? (section === 'made-eu' ? 'reports' : 'opinions') : section;
+  menuCurrent.textContent = labelForPage(activeTab);
+  tabs.forEach(button => {
+    const active = button.dataset.page === activeTab;
+    button.classList.toggle('active', active);
+    if (active) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
+  });
+  if (updateHash) history.replaceState(null, '', '#' + section);
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+tabs.forEach(button => button.addEventListener('click', () => navigate(button.dataset.page)));
+document.querySelectorAll('[data-article]').forEach(button => button.addEventListener('click', () => {
+  if (!validArticles.includes(button.dataset.article)) return;
+  previousPage = document.querySelector('.page.active')?.id || (button.dataset.article === 'made-eu' ? 'reports' : 'opinions');
+  navigate(button.dataset.article);
+}));
+document.querySelectorAll('[data-back-to]').forEach(button => button.addEventListener('click', () => navigate(button.dataset.backTo)));
+document.getElementById('back-button')?.addEventListener('click', () => navigate(previousPage));
+window.addEventListener('hashchange', () => {
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (validPages.includes(h) || validArticles.includes(h)) navigate(h, false);
+});
+const initial = decodeURIComponent(location.hash.slice(1));
+if (validPages.includes(initial) || validArticles.includes(initial)) navigate(initial, false);
+
+
+// Set this to your REAL editorial contact address before publishing.
+const EDITORIAL_EMAIL = 'kontinenten.gu@gmail.com';
+function emailReady(notice) {
+  if (!EDITORIAL_EMAIL.includes('@') || EDITORIAL_EMAIL.includes('REPLACE_')) {
+    notice.textContent = 'Website owner: set EDITORIAL_EMAIL in the script to your actual email address first.';
+    return false;
+  }
+  return true;
+}
+function prepareEmail(subject, body) {
+  window.location.href = 'mailto:' + EDITORIAL_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+}
+const volunteerForm = document.getElementById('volunteer-form');
+volunteerForm?.addEventListener('submit', event => {
+  event.preventDefault();
+  const notice = document.getElementById('volunteer-notice');
+  if (!volunteerForm.reportValidity() || !emailReady(notice)) return;
+  const data = new FormData(volunteerForm);
+  const values = name => String(data.get(name) || '').trim();
+  const body = [
+    'Hello Kontinenten editorial team,', '',
+    'I would like to volunteer as a contributor.', '',
+    'Name: ' + values('name'),
+    'Email: ' + values('email'),
+    'Location: ' + (values('location') || 'Not provided'),
+    'Area of interest: ' + values('role'), '',
+    'Story ideas / contribution:', values('ideas'), '',
+    'About me:', values('about') || 'Not provided', '',
+    'Portfolio / writing sample: ' + (values('portfolio') || 'Not provided'), '',
+    'I consent to sharing this information with the editorial team for a reply.'
+  ].join('\n');
+  notice.textContent = 'Your email app should open with the completed application. Review it and press Send there.';
+  prepareEmail('Kontinenten — Volunteer application: ' + values('name'), body);
+});
+const newsletterForm = document.getElementById('newsletter-form');
+newsletterForm?.addEventListener('submit', event => {
+  event.preventDefault();
+  const notice = document.getElementById('newsletter-notice');
+  if (!newsletterForm.reportValidity() || !emailReady(notice)) return;
+  const email = newsletterForm.elements.email.value.trim();
+  notice.textContent = 'Your email app should open. Press Send to request newsletter updates.';
+  prepareEmail('Kontinenten — Newsletter request',
+    'Hello Kontinenten,\n\nPlease add this address to your newsletter contact list when it becomes available:\n' + email +
+    '\n\nI understand I may need to confirm my subscription later.\n\nThank you!');
+});
+</script>
+</body></html>
