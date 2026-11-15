@@ -2,8 +2,8 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta content="width=device-width,initial-scale=1" name="viewport">
 <meta content="#004b89" name="theme-color">
-<meta content="Kontinenten — a student-led magazine for European ideas, opinions, interviews and reports." name="description">
-<title>Kontinenten | A Student Perspective on Europe</title>
+<meta content="Kontinenten" name="description">
+<title>Kontinenten</title>
 <style>
 :root{--blue:#004b89;--blue-dark:#073255;--sky:#cde7f8;--paper:#faf9f4;--ink:#112537;--line:#b9c6cd;--orange:#f5bd52;--muted:#526574}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--blue);color:var(--ink);font-family:Georgia,'Times New Roman',serif}button,a{font:inherit}a{color:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #f5bd52;outline-offset:4px}
@@ -171,80 +171,95 @@ nav{position:sticky;top:0;z-index:5;background:var(--blue-dark);border-top:2px s
 .newsletter-controls{display:flex;gap:8px;align-items:stretch}.newsletter-controls input{flex:1}.newsletter-controls button{background:#f5bd52;color: #073255;border:0;padding:12px 15px;font:800 11px/1.3 Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap}.newsletter-controls button:hover{background:white}
 .newsletter-form p{font:12px/1.5 Arial,sans-serif;color:#c7dce8;margin:9px 0 0}
 @media(max-width:760px){.volunteer-intro,.field-grid,.newsletter-band{grid-template-columns:1fr}.volunteer-intro{gap:14px}.volunteer-form{padding:20px}.newsletter-band{padding:27px 22px}.newsletter-controls{flex-direction:column}.newsletter-controls button{padding:14px}}
+
+/* November issue additions */
+#home > .headline {color:#003763;}
+.about-intro{max-width:860px;padding:28px 0 10px;}
+.about-intro p{font-size:19px;line-height:1.7;color:#334e60;margin:0 0 22px;}
+.about-intro h3{font:800 12px/1.5 Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue-dark);margin:29px 0 14px;}
+.board-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0 40px;max-width:820px;}
+.board-member{background:#fffdf8;border:1px solid var(--line);border-top:4px solid #003763;padding:21px 23px;}
+.board-member strong{font-size:23px;font-weight:400;}
+.board-member p{font:12px Arial,sans-serif;color:var(--muted);margin:8px 0 0;}
+.article-body p strong{font-weight:700;}
+@media(max-width:760px){.board-list{grid-template-columns:1fr}}
+
+#home .two-cards{grid-template-columns:repeat(3,minmax(0,1fr));}
+#home .two-cards > .slot,#home .two-cards > .entry{min-width:0;}
+#home .two-cards h3{font-size:clamp(23px,2.4vw,31px);}
+@media(max-width:850px){#home .two-cards{grid-template-columns:1fr;}}
+
+/* Better newspaper navigation: full desktop tabs; compact, accessible mobile menu */
+.mobile-menu-toggle{display:none}
+@media (max-width:900px){
+  #site-nav{position:sticky;top:0;z-index:30}
+  #site-nav .mobile-menu-toggle{width:100%;display:flex;align-items:center;gap:12px;min-height:54px;padding:12px 19px;border:0;background:var(--blue-dark);color:white;text-align:left}
+  #site-nav .mobile-menu-label{font:800 10px/1.2 Arial,sans-serif;text-transform:uppercase;letter-spacing:1.5px;color:#b6d5e8}
+  #site-nav .mobile-menu-current{font:700 15px/1.2 Georgia,serif;margin-right:auto}
+  #site-nav .mobile-menu-icon{font:23px/1 Arial,sans-serif}
+  #site-nav .nav-inner{display:none;position:absolute;left:0;right:0;top:100%;background:var(--blue-dark);padding:6px 12px 12px;box-shadow:0 15px 24px #001d3280;flex-direction:column;flex-wrap:nowrap;gap:2px;max-height:calc(100dvh - 64px);overflow-y:auto}
+  #site-nav.menu-open .nav-inner{display:flex}
+  #site-nav .nav-btn{display:block;width:100%;text-align:left;min-height:45px;padding:13px 15px;font:700 12px/1.35 Arial,sans-serif;letter-spacing:1px;border-left:3px solid transparent}
+  #site-nav .nav-btn.active{border-left-color:var(--orange);background:#cde7f8;color:var(--blue-dark)}
+  #site-nav .nav-btn:hover{background:#b6d5e8;color:var(--blue-dark)}
+  #site-nav .mobile-menu-toggle:focus-visible,#site-nav .nav-btn:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}
+}
+@media(max-width:420px){
+  #site-nav .mobile-menu-toggle{padding:11px 14px}
+  .content{padding-left:16px;padding-right:16px}
+  .page-header h2{font-size:clamp(42px,12vw,65px)}
+  .headline{font-size:clamp(36px,11vw,50px)}
+  .article-header h2{font-size:clamp(36px,10vw,54px)}
+  .newsletter-band{margin-left:0;margin-right:0}
+}
 </style>
-</head>
+<link href="./kontinenten-k-icon.png" rel="icon" type="image/png"></head>
 <body><div class="shell">
 <header class="masthead">
-<img alt="Kontinenten" class="continental-logo" height="401" src="Kontinenten logo.png" width="1588">
+<img alt="Kontinenten" class="continental-logo" height="401" src="./kontinenten-logo.png" width="1588">
 </header>
-<nav aria-label="Main navigation"><div class="nav-inner"><button class="nav-btn active" data-page="home" aria-current="page">Home</button><button class="nav-btn" data-page="opinions">Opinions</button><button class="nav-btn" data-page="interviews">Interviews</button><button class="nav-btn" data-page="reports">Reports</button><button class="nav-btn" data-page="write-for-us" type="button">Write for us</button>
-</div></nav><div class="social-strip"><div class="social-topbar">
+<nav aria-label="Main navigation" id="site-nav" class="">
+<button class="mobile-menu-toggle" type="button" aria-controls="primary-nav-links" aria-expanded="false">
+  <span class="mobile-menu-label">Sections</span><span class="mobile-menu-current">Home</span><span class="mobile-menu-icon" aria-hidden="true">☰</span>
+</button>
+<div class="nav-inner" id="primary-nav-links"><button class="nav-btn active" data-page="home" aria-current="page">Home</button><button class="nav-btn" data-page="opinions">Opinions</button><button class="nav-btn" data-page="interviews">Interviews</button><button class="nav-btn" data-page="reports">Reports</button><button class="nav-btn" data-page="write-for-us" type="button">Write for us</button>
+<button class="nav-btn" data-page="about" type="button">About us</button></div></nav><div class="social-strip"><div class="social-topbar">
 <div class="social-links">
-<a href="https://www.instagram.com/YOUR_USERNAME/" rel="noopener noreferrer" target="_blank">Instagram</a>
-<a href="https://www.linkedin.com/company/YOUR_PAGE/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
-<a href="https://facebook.com">Facebook</a><a href="https://facebook.com" target="_blank">Podcast</a>
+<a href="https://www.instagram.com" rel="noopener noreferrer" target="_blank">Instagram</a>
+<a href="https://www.linkedin.com" rel="noopener noreferrer" target="_blank">LinkedIn</a>
 </div>
 </div></div>
 <main class="content" id="main-content">
 <section aria-label="Home" class="page active" id="home">
-<div class="kicker">Welcome to Kontinenten · Issue 01</div><h2 class="headline">Europe is complicated.<br>So are we.</h2>
+<h2 class="headline">Europe is complicated.<br>So are we.</h2>
 <div class="section-heading"><h2>The main story</h2></div>
-<div class="feature"><div aria-label="Graphic illustration in university blue with bold EU letters" class="feature-image" role="img"><span class="micro small">The EU debate</span><b>EU<br>27</b><span class="stamp">One veto too many?</span></div><article><span class="eyebrow">Opinion · European politics</span><h3>One country, one veto. Twenty-seven headaches.</h3><p>After Orbán's exit, is it finally time for the EU to rethink the unanimity rule in foreign policy? Inês Matias makes the case for change—and asks whether Europe's leaders are actually ready.</p><p>By Inês Matias</p><button class="read-link" data-article="ines">Read Inês's opinion →</button></article></div>
+<div class="feature"><div aria-label="Graphic illustration in university blue with bold EU letters" class="feature-image" role="img"><span class="micro small">The EU debate</span><b>EU<br>27</b><span class="stamp">One veto too many?</span></div><article><span class="eyebrow">Opinion · European politics</span><h3>Will the European Union abandon unanimous voting?</h3><p>With Viktor Orbán gone, can the EU move beyond the foreign-policy veto? Inês Matias examines the case for reform—and the political obstacles ahead.</p><p>By Inês Matias</p><button class="read-link" data-article="ines">Read the opinion →</button></article></div>
 <div class="section-heading"><h2>Also on our radar</h2></div><div class="two-cards"><article class="entry">
 <div>
 <span class="eyebrow">Opinion · Society &amp; Student Life</span>
 </div>
 <div>
-<h3>In Defense of Speaking Sh*t French</h3>
-<p>
-            What if the problem with integration isn't
-            your broken Swedish, but a society that
-            has forgotten how to build community?
-        </p>
+<h3>In defense of speaking sh*t Swedish</h3>
+<p>Why learning the language alone cannot solve the loneliness of an increasingly atomized society.</p>
 <div class="metadata">
             5 min read
         </div>
-<button class="read-link" data-article="french">
-            Read the full opinion →
+<button class="read-link" data-article="swedish">
+            Read the opinion →
         </button>
 </div>
 </article><article class="slot"><div class="eyebrow">Report · European Economy</div>
-<h3>Made in EU: Can Europe Rebuild Its Industrial Power?</h3>
-<p>As Brussels proposes new rules for European manufacturing, can industrial competitiveness and economic security go hand in hand?</p>
+<h3>Europe First? Inside the new "Made in EU" push</h3>
+<p>Europe wants to favour domestic manufacturing and low-carbon production. Will the Industrial Accelerator Act survive the politics of 27 member states?</p>
 <div class="metadata">5 min read</div>
-<button class="read-link" data-article="made-eu" type="button">Read the report →</button></article></div>
+<button class="read-link" data-article="made-eu" type="button">Read the report →</button></article><article class="slot"><span class="eyebrow">Opinion · Politics &amp; student life</span><h3>Why Politics?</h3><p>From rent to the price of a bus ticket, politics shapes more of our lives than we might think.</p><div class="metadata">5 min read</div><button class="read-link" data-article="politics" type="button">Read the opinion →</button></article></div>
 <section aria-label="Newsletter signup" class="newsletter-band">
 <div class="newsletter-copy"><span class="micro">A little Europe in your inbox</span><h2>Stay in the loop.</h2></div>
-<form class="newsletter-form" id="newsletter-form"><label for="newsletter-email">Your email address</label><div class="newsletter-controls"><input autocomplete="email" id="newsletter-email" name="email" placeholder="you@example.com" required="" type="email"><button type="submit">Request updates</button></div></form>
+<form class="newsletter-form" id="newsletter-form"><label for="newsletter-email">Your email address</label><div class="newsletter-controls"><input autocomplete="email" id="newsletter-email" name="email" placeholder="you@example.com" required="" type="email"><button type="submit">Request updates</button></div><p aria-live="polite" class="form-notice" id="newsletter-notice" role="status"></p></form>
 </section>
 </section>
-<section aria-label="Opinions" class="page" id="opinions"><header class="page-header"><span class="kicker">Thoughts worth arguing about</span><h2>Opinions.</h2><p>The occasional uncomfortable questions.</p> </header><article class="entry"><div><span class="eyebrow">Europe &amp; democracy</span><div style="margin-top:13px"><span class="status">Editorial draft</span></div></div><div><h3>One country, one veto. Twenty-seven headaches.</h3><p>Is the EU prepared to abandon unanimous voting in foreign policy? Inês Matias examines the opportunity—and the obstacles—after Viktor Orbán's departure.</p><div class="metadata">Inês Matias · Based on EUobserver commentary, 1 May 2026</div><button class="read-link" data-article="ines">Read the full draft →</button></div></article>
-<article class="entry">
-<div>
-<span class="eyebrow">
-            Society &amp; Student Life
-        </span>
-<div style="margin-top:13px">
-<span class="status">Editorial Draft</span>
-</div>
-</div>
-<div>
-<h3>
-            In Defense of Speaking Sh*t French
-        </h3>
-<p>
-            What if the problem with integration isn't
-            your broken Swedish, but a society that has
-            forgotten how to build community?
-        </p>
-<div class="metadata">
-            Opinion · Student Life · 5 min read
-        </div>
-<button class="read-link" data-article="french">
-            Read the full opinion →
-        </button>
-</div>
-</article></section>
+<section aria-label="Opinions" class="page" id="opinions"><header class="page-header"><span class="kicker">Thoughts worth arguing about</span><h2>Opinions.</h2><p>The occasional uncomfortable questions.</p> </header>
+<article class="entry"><div><span class="eyebrow">European politics &amp; democracy</span></div><div><h3>Will the European Union abandon unanimous voting?</h3><p>With Viktor Orbán gone, can the EU move beyond the foreign-policy veto? Inês Matias examines the case for reform—and the political obstacles ahead.</p><div class="metadata">Inês Matias · Opinion</div><button class="read-link" data-article="ines">Read the opinion →</button></div></article><article class="entry"><div><span class="eyebrow">Society &amp; student life</span></div><div><h3>In defense of speaking sh*t Swedish</h3><p>Why learning the language alone cannot solve the loneliness of an increasingly atomized society.</p><div class="metadata">Opinion</div><button class="read-link" data-article="swedish">Read the opinion →</button></div></article><article class="entry"><div><span class="eyebrow">Politics &amp; everyday life</span></div><div><h3>Why Politics?</h3><p>From rent to the price of a bus ticket, politics shapes more of our lives than we might think.</p><div class="metadata">Opinion</div><button class="read-link" data-article="politics">Read the opinion →</button></div></article></section>
 <section aria-label="Interviews" class="page" id="interviews"><header class="page-header"><span class="kicker">The people behind the headlines</span><h2>Interviews.</h2><p>Less talking about people, more talking to them.</p></header><div class="section-heading"><h2>Our interview desk</h2><span>In development</span></div><div class="note"><strong>No published interviews yet.</strong></div><div class="two-cards" style="margin-top:25px"><article class="slot"><p></p><span class="status">Coming soon</span></article><article class="slot"><p></p><span class="status">Coming soon</span></article></div></section><section aria-label="Write for us" class="page" id="write-for-us">
 <header class="page-header">
 <span class="kicker">Join the newsroom</span>
@@ -261,7 +276,6 @@ nav{position:sticky;top:0;z-index:5;background:var(--blue-dark);border-top:2px s
 <aside class="volunteer-aside">
 <span class="micro">What's welcome</span>
 <p>Unexpected perspectives. Thoughtful arguments. Stories about life on campus.</p>
-
 </aside>
 </div>
 <form class="volunteer-form" id="volunteer-form">
@@ -275,76 +289,79 @@ nav{position:sticky;top:0;z-index:5;background:var(--blue-dark);border-top:2px s
 </label>
 </div>
 <label class="form-field">What would you like to write or work on? *<textarea maxlength="2000" name="ideas" placeholder="Tell us about a story, topic or idea you would like to explore..." required="" rows="5"></textarea></label>
-<label class="form-field">A little about you (optional)<textarea maxlength="1200" name="about" placeholder="What interests you? No journalism experience required." rows="3"></textarea></label>
-<label class="form-field">Portfolio, writing sample, or link (optional)<input maxlength="500" name="portfolio" placeholder="https://" type="url"></label>
 <label class="consent"><input name="consent" required="" type="checkbox"><span>I agree to share this information with Kontinenten's editorial team for the purpose of responding to my application. *</span></label>
 <button class="form-submit" type="submit">Prepare my application <span aria-hidden="true"></span></button>
-
-</form>
-</section>
+<p aria-live="polite" class="form-notice" id="volunteer-notice" role="status"></p></form>
+</section><section aria-label="About Kontinenten" class="page" id="about"><header class="page-header"><span class="kicker">Who we are</span><h2>About us.</h2><p>An independent student-led newspaper for the conversations Europe needs.</p></header><div class="about-intro"><h3>Our mission</h3><div id="mission-copy"><p>Our goal as a newspaper publication is to give students a chance to speak and express themselves freely. We hope to activate that youthful energy that exists in us all and provide an opportunity for anybody to speak openly about a particular issue.</p><p>That is why Kontinenten is not a regular publication, but something built around collaboration rather than a strictly top-down approach, with a focus on society, culture, student life, and broader European politics. Something along the lines of ‘‘grassroots journalism’’.</p><p>Here, you can investigate an issue that deserves attention, bring overlooked experiences into view, write an opinion piece, or report on what is happening across Europe. </p><p>For too long have our understanding of the world been mired by short videos online. Perhaps it’s time to learn from each other, engage in critical thinking, and even build some journalistic experience along the way. </p><h3>Is it political?</h3><p>Of course it is, but that doesn’t mean our publication supports and advocates for a particular narrative. Kontinenten is shaped by its contributors. Bring your perspective, make your case, but also be prepared to have it questioned. The point is not that we all agree, but that we give one another something worth thinking about.</p></div><h3>Editorial board</h3><p>Meet the people helping bring Kontinenten to life.</p></div><div class="board-list"><div class="board-member"><strong>Darin Salah</strong><p>Editorial board</p></div><div class="board-member"><strong>Inês Sofia</strong><p>Editorial board</p></div><div class="board-member"><strong>Marvin Rixinger</strong><p>Editorial board</p></div><div class="board-member"><strong>Yahia Arfaoui</strong><p>Editorial board</p></div></div></section>
 <section aria-label="Reports" class="page" id="reports">
 <header class="page-header"><span class="kicker">Evidence over vibes</span><h2>Reports.</h2><p>Examining the policies, decisions and developments shaping Europe's future.</p></header>
-<div class="section-heading"><h2>From the reporting desk</h2><span>First report · Editorial draft</span></div>
+<div class="section-heading"><h2>From the reporting desk</h2></div>
 <article class="entry">
-<div><span class="eyebrow">European Economy &amp; Industrial Policy</span><div style="margin-top:13px"><span class="status">Editorial draft</span></div></div>
-<div><h3>Made in EU: Can Europe Rebuild Its Industrial Power?</h3>
-<p>Europe is rethinking how it supports its industries. From public procurement to conditions on major foreign investments, the proposed Industrial Accelerator Act puts competitiveness, climate targets and economic sovereignty on the same agenda.</p>
+<div><span class="eyebrow">European Economy &amp; Industrial Policy</span></div>
+<div><h3>Europe First? Inside the new "Made in EU" push</h3>
+<p>Europe wants to favour domestic manufacturing and low-carbon production. Will the Industrial Accelerator Act survive the politics of 27 member states?</p>
 <div class="metadata">Report · European industry · 5 min read</div>
 <button class="read-link" data-article="made-eu" type="button">Read the full report →</button></div></article>
 </section>
-<section aria-label="Opinion article" class="article-view" id="article-ines"><button class="back" id="back-button">← Back to Opinions</button><header class="article-header"><span class="eyebrow">Opinion · European Union</span> <span class="status">Editorial draft</span><h2>Is the European Union prepared to abandon unanimous voting in the CFSP?</h2><p class="lede">With Orbán out of office, the EU has an opportunity to rethink a foreign-policy system in which one government can hold up collective action. But changing the rules may be harder than changing the leadership.</p><p class="metadata">Written by Inês Matias · Commentary on an EUobserver opinion by Cláudio Francavilla, 1 May 2026</p></header>
-<div class="article-body">
-<p>The exit of Hungarian Prime Minister Viktor Orbán has created a unique opportunity for Europe to abandon a system that has long paralysed its foreign policy. The European Union operates under a unanimous voting system, where one country has veto power; however, the departure of Viktor Orbán, following sixteen years of governance defined by the use of the veto, marks the end of a major obstruction to the European Union’s collective action. The EUobserver opinion argues that this shift presents an opportunity to transition from unanimous voting to qualified majority voting within the Common Foreign and Security Policy (CFSP).</p>
-<p>Originally conceived to safeguard the national sovereignty of member states, the veto has instead been used by some governments to pursue their own agendas. Orbán frequently leveraged this power to delay support for Ukraine and obstruct measures responding to human rights violations, contributing to a culture of self-censorship within the European External Action Service, which increasingly resorted to ambiguous statements to bypass potential blockades. Given the intergovernmental nature of the CFSP, this reform should be a priority on the European Council’s political agenda.</p>
-<p>This state of affairs has profound implications for European integration. The current decision-making framework, designed for a more homogeneous post-Cold War order, struggles in a 27-member bloc exposed to a volatile international system. An enlarged Union in which a single country can paralyse collective action would face an even greater coordination challenge. Reform should therefore be discussed alongside future EU enlargement.</p>
-<p>The EUobserver commentary points to the “passerelle clauses” provided for in Article 31 of the Treaty on European Union (TEU) as a mechanism for introducing qualified majority voting on certain CFSP decisions without a full treaty revision. However, the legal feasibility of this proposal remains limited: triggering the relevant procedure itself demands unanimity, and national parliaments have a role in the treaty's safeguards. The focus thus shifts from the legal sphere to that of political will. Without Hungarian obstruction as an excuse, will national leaders choose to collaborate on a joint CFSP—or favour isolated action?</p>
-<p>This transition becomes even more difficult when considering that the current unanimity model encourages parallel negotiations, a tactic frequently employed by Orbán, who strategically held up Council decisions to extract leverage in unrelated policy areas. With his departure, other member states might adopt similar strategies. Accordingly, the requirement of unanimity can disincentivise compromise in pursuit of the common interest. Smaller member states may also fear losing the veto as a safeguard against domination by larger powers, notably France and Germany, under qualified majority voting.</p>
-<p>The post-Orbán scenario will test whether paralysis stemmed chiefly from Hungary or from a structural reluctance among member states to delegate sovereignty in the CFSP. Reform is needed if the EU wants to speak with greater consistency on the international stage. A fragmented Europe weakens its influence and allows powers such as Russia, the United States and China to exploit divisions among its members.</p>
-</div>
-<div class="source-box"><strong>Source and editorial context.</strong> This is Inês Matias's draft opinion responding to Cláudio Francavilla's EUobserver commentary, “Hungary’s Orbán is gone. Now the EU unanimity rule should go too,” published 1 May 2026. It is not a news report by EUobserver and is not presented as independently verified original reporting. <a href="https://euobserver.com/213543/hungarys-orban-is-gone-now-the-eu-unanimity-rule-should-go-too/" rel="noopener noreferrer" target="_blank">Read the original EUobserver article ↗</a>. Some wording has been lightly edited for clarity; the author should approve it before publication.</div>
+<section aria-label="Opinion article" class="article-view" id="article-ines"><button class="back" id="back-button">← Back to Opinions</button><header class="article-header"><span class="eyebrow">Opinion · European Union</span> <h2>Will the European Union abandon unanimous voting?</h2><p class="lede">With Viktor Orbán gone, the European Union can speak with one voice on foreign policy.</p><p class="metadata">Written by Inês Matias · Opinion on European foreign policy</p></header>
+
+<div class="article-body"><p>The exit of Hungarian Prime Minister, Viktor Orbán, has created a unique opportunity for Europe to abandon a system that has long paralyzed their foreign policy. The European Union operates under a unanimous voting system, where one country has complete veto power; however, the departure of Viktor Orbán, following sixteen years of governance defined by the abuse of the veto, marks the end of a systemic obstruction to the European Union’s collective action. Reports indicate that this shift presents a unique opportunity to transition from unanimous voting to qualified majority voting within the Common Foreign and Security Policy (CFSP). </p><p>Originally conceived to safeguard the national sovereignty of Member States, the veto has instead been used as a tool by governments facing rule of law issues to pursue self-serving agendas. Orbán frequently leveraged this power to block sanctions over human rights violations and derail aid packages for Ukraine, creating a culture of self-censorship within the European External Action Service, which increasingly resorted to ambiguous statements to bypass potential blockades. Given the intergovernmental nature of the CFSP, this reform must be treated as an absolute priority on the European Council’s political agenda.</p><p><strong>As the bloc looks toward future enlargement, keeping a rule where a single country can hold the rest of the continent hostage is no longer viable. </strong></p><p>This state of affairs has profound implications for European integration. The current decision-making framework, designed for a more homogenous post-Cold War order, has rendered itself dysfunctional in a 27-member bloc exposed to a volatile international system. Conceiving an enlarged Union in which a single country can paralyze collective action is simply untenable. Consequently, this reform must precede further EU enlargements, which is a notable reason why the progress made toward Montenegro’s accession and the political shift in Hungary present the ideal opportunity.</p><p>The report points to the “passerelle clauses” provided for in Article 31 of the Treaty on European Union (TEU) as the most effective mechanism for introducing qualified majority voting in the CFSP, without requiring a Treaty revision. However, the legal feasibility of this proposal remains low, as its activation itself demands unanimity and the non-opposition of national parliaments, rendering the process inherently complex. The focus thus shifts from the legal sphere to that of political will. In the absence of the pretext of Hungarian obstructionism, the central question emerges as to whether Heads of State will choose to collaborate within a joint CFSP or opt instead for isolated action and the Union’s geopolitical irrelevance.</p><p><strong>The real test will be whether smaller states can overcome their fear of being bullied by larger powers. </strong></p><p>This transition becomes even more difficult to achieve when considering that the current unanimity model encourages parallel negotiations, a tactic frequently employed by Orbán, who strategically paralyzed the council to extract leverage in unrelated policy areas. With his departure, other member states may as well opt to adopt similar strategies. Accordingly, the requirement of unanimity disincentivizes compromise in pursuit of the common interest. This is particularly evident among smaller member states, which fear losing the veto as a safeguard against the hegemony of the Franco-German axis under a qualified majority voting system.</p><p>The post-Orbán scenario will test whether the paralysis stemmed solely from Hungary or from a structural reluctance among member states to delegate sovereignty in the CFSP. Regardless, a reform is urgently needed to stem the loss of the EU’s reputation in international standing. A fragmented Europe undermines its deterrence power, making it clear to global powers such as Russia, the U.S., and China that the bloc poses no threat because it remains divided internally.</p></div>
 </section>
 <section aria-label="Report on the Industrial Accelerator Act" class="article-view" id="article-made-eu">
 <button class="back" data-back-to="reports" type="button">← Back to Reports</button>
 <header class="article-header">
 <span class="eyebrow">Report · European Economy &amp; Industrial Policy</span>
-<span class="status">Editorial draft</span>
-<h2>Made in EU: Can Europe Rebuild Its Industrial Power?</h2>
-<p class="lede">The European Commission wants public spending and strategic investment to strengthen Europe's industrial base. But can the bloc agree on what should count as “Made in EU”?</p>
-<p class="metadata">Kontinenten · 5 min read · Author to be confirmed</p>
+<h2>Europe First? Inside the new "Made in EU" push</h2>
+<p class="lede">The Industrial Accelerator Act is Europe’s attempt to strengthen its industrial base and reduce external dependencies.</p>
+<p class="metadata">Kontinenten · 5 min read</p>
 </header>
-<div class="article-body">
-<p>Economic competitiveness and strategic sovereignty currently stand as some of the greatest challenges facing the European Union (EU), forming the central theme of Mario Draghi's report, <em>The Future of European Competitiveness</em>. In that report, Draghi warns that the EU is losing ground in critical technological and industrial sectors, accumulating severe external dependencies that expose the bloc to geopolitical vulnerabilities.</p>
-<p>While other global powers have adopted aggressive state-sponsored strategies, such as China's “Made in China 2025” or the US Inflation Reduction Act (IRA), Europe has historically lacked a strong, clear rule on Community preference. Simultaneously, EU companies face demanding sustainability targets and high energy costs that foreign competitors do not share. In response, the European Commission proposed “Made in EU” measures as part of a legislative package known as the Industrial Accelerator Act (IAA). This initiative represents a broader EU effort to strengthen the competitiveness of local industries against producers abroad, while accelerating the decarbonisation of crucial sectors such as steel, aluminium and electric vehicles, and clean technologies such as batteries, solar, wind and nuclear.</p>
-<p>The proposed “Made in EU” framework sets minimum local-content requirements for specified publicly funded projects and procurement, directing public authorities toward qualifying products manufactured in the EU. This would mark a shift away from an approach based exclusively on the lowest market price, redirecting public spending strategically toward economic security as part of a European industrial policy.</p>
-<p>At the same time, the proposed law seeks to impose conditions on foreign direct investment (FDI) of at least €100 million in strategic sectors where a non-EU country holds more than 40% of global manufacturing capacity. Under these proposed rules, qualifying foreign investments would have to employ at least 50% EU workers, aiming to keep jobs and added value within European territory.</p>
-<p>Under the Commission's proposed approach, “Made in EU” provisions would cover the EU's 27 member states, with certain provisions extending to European Economic Area partners such as Norway, Iceland and Liechtenstein. The framework could also extend to other countries with trade agreements, based on reciprocity and the conditions of the final legislation.</p>
-<p>As a legislative proposal from the European Commission, the text still requires negotiation and approval by the European Parliament and the Council of the European Union before it becomes law. Reaching agreement will be challenging, given that member states have differing views on the policy and may try to impose their own agendas. A joint approach with harmonised rules applied equally across the EU is therefore crucial to prevent fragmentation of the Single Market and safeguard credibility with investors.</p>
-</div>
-<div class="source-box"><strong>Sources &amp; editorial context.</strong> This is an editorial draft. The Industrial Accelerator Act remains a proposal, not enacted legislation. Its scope and thresholds may change during negotiations.
+<div class="article-body"><p><strong>Economic competitiveness and sovereignty currently stand as one of the greatest challenges facing the European Union</strong></p><p>This forms the central theme of the Draghi Report “The future of European competitiveness”. In this report, Mario Draghi explicitly warns that the EU is losing ground in critical technological and industrial sectors, accumulating severe external dependencies that expose the bloc to geopolitical vulnerabilities. </p><p>While other global powers have adopted aggressive state sponsored strategies, such as China’s “Made in China 2025” or the US Inflation Reduction Act (IRA), Europe has historically lacked a strong, clear rule on Community preference. Simultaneously, EU companies face demanding sustainability targets and high energy costs that foreign competitors do not share. In response to this diagnosis, the European Commission has proposed “Made in EU” as a part of a legislative package known as the Industrial Accelerator Act (IAA). This initiative represents an effort to strengthen the competitiveness of local industries against producers abroad, while accelerating the decarbonisation of crucial sectors such as steel, aluminium and electric vehicles, and clean technology such as batteries, solar, wind, and nuclear. </p><p><strong>Europe puts itself first: this law will now prioritize homegrown goods for public projects and force mega-foreign investors to keep the majority of their jobs on European soil. </strong></p><p>The “Made in EU” framework sets a minimum local content requirements for publicly funded projects, obliging national governments and municipalities to prioritise goods manufactured within the EU. This marks a shift away from an approach based exclusively on the lowest market price, redirecting public spending strategically toward the economic security of a true European industrial policy. </p><p>At the same time, the proposed law seeks to impose strict conditions on foreign direct investment (FDI) exceeding 100 million euros in strategic sectors where a non-EU country holds more than 40% of global manufacturing capacity. Under these rules, foreign investors would have to commit to employing at least 50% of European workers, ensuring high employment rates and added value within European territory. </p><p>The Made in EU status is set to automatically cover all 27 Member States as well as the remaining countries integrated into the Single Market such as Norway, Iceland and Liechtenstein. Furthermore, the framework could extend to other nations that hold Free Trade Agreements with the union, strictly grounded in the principle of reciprocity. </p><p><strong>Before this vision becomes reality, it has to survive a brutal political process where national governments and 27 different agendas threaten to tear the plan apart. </strong></p><p>As a legislative proposal from the European Commission, the text still requires negotiation and approval from both the European Parliament and the Council of the European Union before becoming law. Reaching an agreement will be challenging, given that Member States have differing views on the policy and may try to impose their own agendas. A joint approach with harmonised rules applied equally across the EU is therefore crucial to prevent Single Market fragmentation and safeguard credibility with investors.  </p></div>
+<div class="source-box"><strong>Sources &amp; editorial context. </strong>The Industrial Accelerator Act remains a proposal, not enacted legislation. Its scope and thresholds may change during negotiations.
 <ul>
-<li><a href="https://strategicperspectives.eu/eu-introduces-made-in-europe-rules-to-support-its-industries/" rel="noopener noreferrer" target="_blank">Strategic Perspectives — EU introduces Made in Europe rules</a></li>
-<li><a href="https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp260211~2822ae9612.en.html" rel="noopener noreferrer" target="_blank">European Central Bank — speech, 11 February 2026</a></li>
-<li><a href="https://www.carbonbrief.org/qa-what-the-eus-new-industry-and-made-in-europe-rules-mean-for-climate-action" rel="noopener noreferrer" target="_blank">Carbon Brief — What the new rules mean for climate action</a></li>
-<li><a href="https://www.reuters.com/world/uk/what-is-brussels-made-eu-law-why-is-britain-worried-2026-09-22/" rel="noopener noreferrer" target="_blank">Reuters — What is Brussels' Made in EU law?</a></li>
-<li><a href="https://commission.europa.eu/news-and-media/news/commission-proposes-new-measures-boost-eu-industry-and-jobs-2026-03-04_en" rel="noopener noreferrer" target="_blank">European Commission — Industrial Accelerator Act proposal, 4 March 2026</a></li>
+<li><a href="https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp260211~2822ae9612.en.html" rel="noopener noreferrer" target="_blank">European Central Bank - speech, 11 February 2026</a></li>
+<li><a href="https://www.carbonbrief.org/qa-what-the-eus-new-industry-and-made-in-europe-rules-mean-for-climate-action" rel="noopener noreferrer" target="_blank">Carbon Brief - What the new rules mean for climate action</a></li>
+<li><a href="https://www.reuters.com/world/uk/what-is-brussels-made-eu-law-why-is-britain-worried-2026-09-22/" rel="noopener noreferrer" target="_blank">Reuters - What is Brussels' Made in EU law?</a></li>
+<li><a href="https://commission.europa.eu/news-and-media/news/commission-proposes-new-measures-boost-eu-industry-and-jobs-2026-03-04_en" rel="noopener noreferrer" target="_blank">European Commission - Industrial Accelerator Act proposal, 4 March 2026</a></li>
 </ul></div>
-</section>
+</section><section aria-label="Opinion on language and community" class="article-view" id="article-swedish"><button class="back" data-back-to="opinions" type="button">← Back to Opinions</button><header class="article-header"><span class="eyebrow">Opinion · Society &amp; Student Life</span><h2>In defense of speaking sh*t Swedish</h2><p class="lede">Learning the language matters. But meaningful integration requires something more than fluency.</p><p class="metadata">Kontinenten · Opinion</p></header><div class="article-body"><p>It's a common experience for a migrant or exchange student from a completely foreign culture to feel a little out of touch in the cold climate of Sweden, or maybe even all of West Europe. Now of course the weather is freezing cold, but that's not what I'm talking about. It seems as if the culture and rules of socialization perfectly reflect that climate. </p><p>We have all heard this before, "it's hard to make friends here" or "I have spent years here and still feel alone". We try to accommodate in multiple ways, believing that once we learn the language perfectly, we can finally integrate. We are imagining integration as entry into one big family: learn the language, understand the customs, and eventually someone will pull up a chair.  Reality is, even after ranking highest in the duolingo leaderboard, something will still feel not quite right: like you are out of place. Now of course learning the language is essential. People will view you differently and perhaps even infantilize you to some degree if you speak broken swedish, but the problem that we are forgetting is that most Swedes also feel this way, and that is because we are not one big family where everyone can integrate to by speaking the language flawlessly, but rather a few isolated units scattered here and there in an increasingly atomized society. </p><p>For example, most events in university campuses are organized in a way that solely focuses on the event itself rather than actually building a community. You can go to the campus pub, or to a halloween event, and still go home feeling empty and alone like nothing drastically has changed about your social life, even after exchanging numbers or social media with others. That is because the event was over, the drinking was done, and the objective completed. Most already enter with their own pre-established friend groups, and any attempt at actually trying to make a new friend more often than not has some ulterior motive, like boosting your linkedin numbers up and expanding your social network for future benefit. But even the small things, like talking to somebody on the bus or the tram, is considered a huge violation of their privacy, and that is precisely the question I want to ask about the ideal of independence we so often admire, not only in Sweden, but in the wider Western European context: when does respecting others space become leaving one another alone? </p><p>Of course I am not suggesting that event organisers should always manufacture friendships on day one, or that strangers owe us conversation. But building a community means more than bringing people into the same room for an evening. It could also mean bringing people together around shared interests and giving them regular reasons to meet, not only through fun weekly events, but through shared projects and difficulties to change something together. That is why clubs are so important, but equally important is for those clubs not to forget their real purpose of actually fostering these communities, and not solely for building your portfolio.</p><p>But again, even the small things matter. Perhaps the answer is not always entering another event. Sometimes it is asking someone from the last one to lunch, or to invite them home and maybe even cook dinner together. So for those who feel alone, whether you are an immigrant or native, it’s important to keep in mind that the wall between us isn't linguistic, it's cultural, and that culture can be changed from small actions that foster a sense of community and belonging. Things that push past a hyper-independent comfort zone that tells us to keep to ourselves. We are so afraid of embarrassing ourselves, but really, deep down we all like to be treated that way: treated in a way that makes us feel like we matter. </p></div></section><section aria-label="Opinion on why politics matters" class="article-view" id="article-politics"><button class="back" data-back-to="opinions" type="button">← Back to Opinions</button><header class="article-header"><span class="eyebrow">Opinion · Politics &amp; Everyday Life</span><h2>Why Politics?</h2><p class="lede">Politics might be messy, but it also shapes the everyday questions we cannot avoid.</p><p class="metadata">Kontinenten · Opinion</p></header><div class="article-body"><p>Politics is disgusting. It really is. It is a cesspool of the worst and most extreme traits imaginable, like ego, smugness, superiority, and hate. It brings out the worst in people, turning an otherwise calm person into a self righteous hero who has never spoken louder in their life. It’s no wonder it acts as a magnet for people who suffer from a sense of inferiority or perhaps depression: it is the perfect vehicle for bringing out the passions but also provides immense purpose. So It's fair to say politics is disgusting, and even fairer to not be interested. But then we start talking about rent. About whether we can afford to move out. About the job we need alongside our studies, or whether taking an unpaid internship is really an opportunity. Past all that toxic sludge, you really need those passions to actually get things done. </p><p>We tend to picture politics as something happening elsewhere. In parliament, on television, or in a comment section. There are people who do politics, and then there are the rest of us, trying to get through the week. But getting through the week is where a lot of it happens. What should the costs of your education be for example? What jobs and internships should you pursue? Why is the bus always delayed? Even things you never conceive as being political have some political undertones to them. How we communicate with each other, for example. What we consider polite. Whose concerns we take seriously, and who gets dismissed as too sensitive. Even the words we use to describe our own struggles: if you cannot afford your rent, is it a personal failure? One tells you to change your habits, the other says something around you needs to change, and now before we even offer a solution, the way we explain the problem already shapes what we think needs fixing. </p><p>Sometimes it seems as though we take a lot of the things around us for granted, which is fair because most things like water and electricity are provided by proper institutions, and these institutions have become so automatic and expansive that they get easily overlooked. And that includes political institutions that give us our rights. </p><p>But none of this organizes itself. The providing of those things require a set of values. Who should have access, and who should pay? Why and how should we choose to provide them? Answering those questions means making choices and value judgements. Eventually those choices become the norm and we stop noticing them as choices. They are just “how things work”. Accepting them is political neutrality, but when you begin questioning them, that’s when you sound political. </p><p>Speaking of which, what even is political neutrality? Neutrality means remaining impartial, abstaining from conflict and not taking sides. One could argue that neutrality implies a default position of sorts, and the default position is essentially standing with the norms of society: the same norms mentioned earlier. These are how the generations before you chose to answer those questions that eventually became normalized. Just because something is ‘‘the norm’’ or ‘‘how things work’’ doesn’t mean it’s a bad thing, but it’s simply important to keep in mind that being neutral is ultimately, still an opinion. It doesn’t necessarily mean you agree with how things just are, but you aren’t challenging them either, and if you actively choose not to then you end up agreeing with them. It’s always fun to play these little philosophy games sometimes. Why do I have these beliefs? Did I come up with it myself, or did someone else tell me that this is worth believing, or that this is the opinion I should have? </p><p>I remember having a conversation with someone who argued that Jesus, the humble carpenter of Nazareth, might as well have been some leftwing radical of his day who started a political movement. Looking at it that way, even religion is political! It was an archaic form of politics: the politics of that time that has become mystified and turned into what we call religion. Perhaps our politics will become like that in the future too.</p><p>This is not an argument against political neutrality, but rather showing what that actually implies. So while politics may be disgusting, it also allows us to function as a society, and to challenge norms that may be proven harmful for many. It may bring out our inner smugness, ego, or superiority, but it also brings out the other passions, like love, bravery, and empathy. It is dangerous, but it is also a passionate subject that helps the generations after us. After all, politics really is everywhere.</p></div></section>
 </main><footer class="footer"><div><strong>Kontinenten</strong><p>A publication by Brännpunkt.<br></p></div><div><p>Gothenburg, Sweden<br>Independent student journalism<br>© 2026 Kontinenten</p></div></footer>
 </div>
 <script>
 const tabs = [...document.querySelectorAll('.nav-btn')];
 const pages = [...document.querySelectorAll('.page')];
 const articles = [...document.querySelectorAll('.article-view')];
-const validPages = ['home', 'opinions', 'interviews', 'reports', 'write-for-us'];
-const validArticles = ['ines', 'made-eu'];
+const validPages = ['home', 'opinions', 'interviews', 'reports', 'write-for-us', 'about'];
+const validArticles = ['ines', 'made-eu', 'swedish', 'politics'];
 let previousPage = 'opinions';
+
+// Mobile menu: keyboard accessible, closes after navigation and outside clicks.
+const siteNav = document.getElementById('site-nav');
+const menuToggle = siteNav.querySelector('.mobile-menu-toggle');
+const menuCurrent = siteNav.querySelector('.mobile-menu-current');
+const labelForPage = page => tabs.find(b => b.dataset.page === page)?.textContent.trim() || 'Home';
+function closeMobileMenu(){
+  siteNav.classList.remove('menu-open');
+  menuToggle.setAttribute('aria-expanded','false');
+  siteNav.querySelector('.mobile-menu-icon').textContent = '☰';
+}
+menuToggle.addEventListener('click',()=>{
+  const open = siteNav.classList.toggle('menu-open');
+  menuToggle.setAttribute('aria-expanded',String(open));
+  siteNav.querySelector('.mobile-menu-icon').textContent = open ? '✕' : '☰';
+});
+document.addEventListener('click',event=>{if(!siteNav.contains(event.target))closeMobileMenu()});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeMobileMenu();menuToggle.focus()}});
+window.addEventListener('resize',()=>{if(window.innerWidth>900)closeMobileMenu()});
+
 function navigate(section, updateHash = true) {
   const isArticle = validArticles.includes(section);
   if (!isArticle && !validPages.includes(section)) return;
   pages.forEach(page => page.classList.toggle('active', !isArticle && page.id === section));
   articles.forEach(article => article.classList.toggle('active', isArticle && article.id === 'article-' + section));
   if (!isArticle) previousPage = section;
+  closeMobileMenu();
   const activeTab = isArticle ? (section === 'made-eu' ? 'reports' : 'opinions') : section;
+  menuCurrent.textContent = labelForPage(activeTab);
   tabs.forEach(button => {
     const active = button.dataset.page === activeTab;
     button.classList.toggle('active', active);
