@@ -7,6 +7,7 @@ Data store: Azure Cosmos DB for NoSQL (all items partitioned under /tenant).
 """
 import json
 import os
+from functools import wraps
 from datetime import datetime, timezone
 from uuid import uuid4
 
@@ -41,6 +42,7 @@ class APIError(Exception):
 
 
 def guarded(handler):
+    @wraps(handler)
     def route(req: func.HttpRequest):
         try:
             return handler(req)
