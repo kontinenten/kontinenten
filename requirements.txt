@@ -1,0 +1,4 @@
+azure-functions>=1.20,<2
+azure-cosmos>=4.7,<5
+azure-identity>=1.17,<2
+PyJWT[crypto]>=2.9,<3
