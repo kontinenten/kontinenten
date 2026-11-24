@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYTPE html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta content="width=device-width,initial-scale=1" name="viewport">
 <meta content="#004b89" name="theme-color">
@@ -194,8 +194,8 @@ nav{position:sticky;top:0;z-index:5;background:var(--blue-dark);border-top:2px s
 @media (max-width:900px){
   #site-nav{position:sticky;top:0;z-index:30}
   #site-nav .mobile-menu-toggle{width:100%;display:flex;align-items:center;gap:12px;min-height:54px;padding:12px 19px;border:0;background:var(--blue-dark);color:white;text-align:left}
-  #site-nav .mobile-menu-label{font:800 15px/1.2 Arial,sans-serif;text-transform:uppercase;letter-spacing:1.5px;color:#b6d5e8}
-  #site-nav .mobile-menu-current{font:700 20px/1.2 Arial,serif;margin-right:auto}
+  #site-nav .mobile-menu-label{font:800 10px/1.2 Arial,sans-serif;text-transform:uppercase;letter-spacing:1.5px;color:#b6d5e8}
+  #site-nav .mobile-menu-current{font:700 15px/1.2 Georgia,serif;margin-right:auto}
   #site-nav .mobile-menu-icon{font:23px/1 Arial,sans-serif}
   #site-nav .nav-inner{display:none;position:absolute;left:0;right:0;top:100%;background:var(--blue-dark);padding:6px 12px 12px;box-shadow:0 15px 24px #001d3280;flex-direction:column;flex-wrap:nowrap;gap:2px;max-height:calc(100dvh - 64px);overflow-y:auto}
   #site-nav.menu-open .nav-inner{display:flex}
@@ -212,6 +212,43 @@ nav{position:sticky;top:0;z-index:5;background:var(--blue-dark);border-top:2px s
   .article-header h2{font-size:clamp(36px,10vw,54px)}
   .newsletter-band{margin-left:0;margin-right:0}
 }
+
+/* Kontinenten private editorial room. Public desktop/mobile navigation unchanged. */
+[hidden]{display:none!important}
+.editor-footer-link{border:1px solid #7c9ab0;background:transparent;color:#eff7ff;padding:10px 13px;font:700 11px Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;cursor:pointer}
+.editor-footer-link:hover{background:#cde7f8;color:#073255}
+.editor-setup{margin:22px 0;padding:20px 22px;background:#fff0c8;border-left:4px solid #b87910;font:15px/1.6 Arial,sans-serif}
+.editor-login{max-width:510px;margin:32px auto}
+.editor-panel{background:#fffdf8;border:1px solid var(--line);padding:26px;margin:22px 0}
+.editor-panel h3{font-size:32px;font-weight:400;margin:10px 0 24px}
+.editor-toolbar{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:22px 0}
+.editor-toolbar p{margin:8px 0 0}
+.editor-actions{display:flex;align-items:center;flex-wrap:wrap;gap:9px}
+.editor-secondary{padding:13px 16px;border:1px solid #93aabb;background:transparent;color:#073255;font:800 11px Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;cursor:pointer}
+.editor-secondary:hover{background:#e5f0f7}
+.editor-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:25px}
+.editor-stat{min-width:0;border:1px solid var(--line);background:#fffdf8;color:var(--blue-dark);padding:18px;text-align:left;cursor:pointer}
+.editor-stat b{display:block;font:400 42px/1 Georgia,serif;margin-bottom:10px}
+.editor-stat span{font:800 11px/1.5 Arial,sans-serif;text-transform:uppercase;letter-spacing:.6px}
+.editor-stat.selected,.editor-stat:hover{border-color:var(--blue-dark);background:#dcecf6}
+.editor-subhead{font:800 22px/1.15 Arial,sans-serif;letter-spacing:-.6px;margin:0}
+.editor-table-wrap{overflow-x:auto;border:1px solid var(--line);background:#fffdf8}
+.editor-table{width:100%;border-collapse:collapse;font:13px/1.5 Arial,sans-serif;min-width:670px}
+.editor-table th{text-align:left;padding:14px 15px;background:#e7f0f6;border-bottom:1px solid var(--line);text-transform:uppercase;letter-spacing:.7px;font-size:10px;color:var(--blue-dark)}
+.editor-table td{padding:15px;border-bottom:1px solid #dee3e7;vertical-align:middle}
+.editor-table tr:last-child td{border-bottom:0}
+.editor-table .editor-title{font:600 18px/1.25 Georgia,serif;max-width:300px}
+.editor-row-button{border:0;border-bottom:2px solid var(--blue);background:none;color:var(--blue);padding:5px 0;font:800 11px Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase}
+.editor-badge{font:800 10px Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;padding:6px 9px;background:#e6edf4;display:inline-block;white-space:nowrap}
+.editor-badge[data-status="draft"]{background:#e2ecf7}.editor-badge[data-status="review"]{background:#ffebc0}.editor-badge[data-status="published"]{background:#d5edda}
+.editor-message{font:13px/1.5 Arial,sans-serif;min-height:18px;margin:14px 0;color:#28465a}
+.editor-edit-panel{margin-top:30px;border-top:5px solid var(--blue-dark);scroll-margin-top:90px}
+.editor-edit-actions{margin-top:8px}.editor-edit-panel .form-field textarea{font:16px/1.7 Georgia,serif}
+.editor-preview{margin-top:30px;padding:24px 0;border-top:4px solid var(--blue-dark)}
+.editor-preview h2{font:400 clamp(34px,5vw,58px)/1.02 Georgia,serif;letter-spacing:-1.5px;margin:12px 0}
+.editor-preview .article-body{margin:24px 0;max-width:800px}
+@media(max-width:720px){.editor-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.editor-panel{padding:19px}.editor-stat{padding:15px}.editor-stat b{font-size:32px}.editor-edit-actions>*{flex:1 1 130px}}
+
 </style>
 <link href="./kontinenten-k-icon.png?v=2" rel="icon" type="image/png"></head>
 <body><div class="shell">
@@ -253,7 +290,7 @@ nav{position:sticky;top:0;z-index:5;background:var(--blue-dark);border-top:2px s
 <p>Europe wants to favour domestic manufacturing and low-carbon production. Will the Industrial Accelerator Act survive the politics of 27 member states?</p>
 <div class="metadata">5 min read</div>
 <button class="read-link" data-article="made-eu" type="button">Read the report →</button></article><article class="slot"><span class="eyebrow">Opinion · Politics &amp; student life</span><h3>Why Politics?</h3><p>From rent to the price of a bus ticket, politics shapes more of our lives than we might think.</p><div class="metadata">5 min read</div><button class="read-link" data-article="politics" type="button">Read the opinion →</button></article></div>
-<section aria-label="Newsletter signup" class="newsletter-band">
+<div id="azure-home-stories"></div><section aria-label="Newsletter signup" class="newsletter-band">
 <div class="newsletter-copy"><span class="micro">A little Europe in your inbox</span><h2>Stay in the loop.</h2></div>
 <form class="newsletter-form" id="newsletter-form"><label for="newsletter-email">Your email address</label><div class="newsletter-controls"><input autocomplete="email" id="newsletter-email" name="email" placeholder="you@example.com" required="" type="email"><button type="submit">Request updates</button></div><p aria-live="polite" class="form-notice" id="newsletter-notice" role="status"></p></form>
 </section>
@@ -324,13 +361,42 @@ nav{position:sticky;top:0;z-index:5;background:var(--blue-dark);border-top:2px s
 <li><a href="https://commission.europa.eu/news-and-media/news/commission-proposes-new-measures-boost-eu-industry-and-jobs-2026-03-04_en" rel="noopener noreferrer" target="_blank">European Commission - Industrial Accelerator Act proposal, 4 March 2026</a></li>
 </ul></div>
 </section><section aria-label="Opinion on language and community" class="article-view" id="article-swedish"><button class="back" data-back-to="opinions" type="button">← Back to Opinions</button><header class="article-header"><span class="eyebrow">Opinion · Society &amp; Student Life</span><h2>In defense of speaking sh*t Swedish</h2><p class="lede">Learning the language matters. But meaningful integration requires something more than fluency.</p><p class="metadata">Kontinenten · Opinion</p></header><div class="article-body"><p>It's a common experience for a migrant or exchange student from a completely foreign culture to feel a little out of touch in the cold climate of Sweden, or maybe even all of West Europe. Now of course the weather is freezing cold, but that's not what I'm talking about. It seems as if the culture and rules of socialization perfectly reflect that climate. </p><p>We have all heard this before, "it's hard to make friends here" or "I have spent years here and still feel alone". We try to accommodate in multiple ways, believing that once we learn the language perfectly, we can finally integrate. We are imagining integration as entry into one big family: learn the language, understand the customs, and eventually someone will pull up a chair.  Reality is, even after ranking highest in the duolingo leaderboard, something will still feel not quite right: like you are out of place. Now of course learning the language is essential. People will view you differently and perhaps even infantilize you to some degree if you speak broken swedish, but the problem that we are forgetting is that most Swedes also feel this way, and that is because we are not one big family where everyone can integrate to by speaking the language flawlessly, but rather a few isolated units scattered here and there in an increasingly atomized society. </p><p>For example, most events in university campuses are organized in a way that solely focuses on the event itself rather than actually building a community. You can go to the campus pub, or to a halloween event, and still go home feeling empty and alone like nothing drastically has changed about your social life, even after exchanging numbers or social media with others. That is because the event was over, the drinking was done, and the objective completed. Most already enter with their own pre-established friend groups, and any attempt at actually trying to make a new friend more often than not has some ulterior motive, like boosting your linkedin numbers up and expanding your social network for future benefit. But even the small things, like talking to somebody on the bus or the tram, is considered a huge violation of their privacy, and that is precisely the question I want to ask about the ideal of independence we so often admire, not only in Sweden, but in the wider Western European context: when does respecting others space become leaving one another alone? </p><p>Of course I am not suggesting that event organisers should always manufacture friendships on day one, or that strangers owe us conversation. But building a community means more than bringing people into the same room for an evening. It could also mean bringing people together around shared interests and giving them regular reasons to meet, not only through fun weekly events, but through shared projects and difficulties to change something together. That is why clubs are so important, but equally important is for those clubs not to forget their real purpose of actually fostering these communities, and not solely for building your portfolio.</p><p>But again, even the small things matter. Perhaps the answer is not always entering another event. Sometimes it is asking someone from the last one to lunch, or to invite them home and maybe even cook dinner together. So for those who feel alone, whether you are an immigrant or native, it’s important to keep in mind that the wall between us isn't linguistic, it's cultural, and that culture can be changed from small actions that foster a sense of community and belonging. Things that push past a hyper-independent comfort zone that tells us to keep to ourselves. We are so afraid of embarrassing ourselves, but really, deep down we all like to be treated that way: treated in a way that makes us feel like we matter. </p></div></section><section aria-label="Opinion on why politics matters" class="article-view" id="article-politics"><button class="back" data-back-to="opinions" type="button">← Back to Opinions</button><header class="article-header"><span class="eyebrow">Opinion · Politics &amp; Everyday Life</span><h2>Why Politics?</h2><p class="lede">Politics might be messy, but it also shapes the everyday questions we cannot avoid.</p><p class="metadata">Kontinenten · Opinion</p></header><div class="article-body"><p>Politics is disgusting. It really is. It is a cesspool of the worst and most extreme traits imaginable, like ego, smugness, superiority, and hate. It brings out the worst in people, turning an otherwise calm person into a self righteous hero who has never spoken louder in their life. It’s no wonder it acts as a magnet for people who suffer from a sense of inferiority or perhaps depression: it is the perfect vehicle for bringing out the passions but also provides immense purpose. So It's fair to say politics is disgusting, and even fairer to not be interested. But then we start talking about rent. About whether we can afford to move out. About the job we need alongside our studies, or whether taking an unpaid internship is really an opportunity. Past all that toxic sludge, you really need those passions to actually get things done. </p><p>We tend to picture politics as something happening elsewhere. In parliament, on television, or in a comment section. There are people who do politics, and then there are the rest of us, trying to get through the week. But getting through the week is where a lot of it happens. What should the costs of your education be for example? What jobs and internships should you pursue? Why is the bus always delayed? Even things you never conceive as being political have some political undertones to them. How we communicate with each other, for example. What we consider polite. Whose concerns we take seriously, and who gets dismissed as too sensitive. Even the words we use to describe our own struggles: if you cannot afford your rent, is it a personal failure? One tells you to change your habits, the other says something around you needs to change, and now before we even offer a solution, the way we explain the problem already shapes what we think needs fixing. </p><p>Sometimes it seems as though we take a lot of the things around us for granted, which is fair because most things like water and electricity are provided by proper institutions, and these institutions have become so automatic and expansive that they get easily overlooked. And that includes political institutions that give us our rights. </p><p>But none of this organizes itself. The providing of those things require a set of values. Who should have access, and who should pay? Why and how should we choose to provide them? Answering those questions means making choices and value judgements. Eventually those choices become the norm and we stop noticing them as choices. They are just “how things work”. Accepting them is political neutrality, but when you begin questioning them, that’s when you sound political. </p><p>Speaking of which, what even is political neutrality? Neutrality means remaining impartial, abstaining from conflict and not taking sides. One could argue that neutrality implies a default position of sorts, and the default position is essentially standing with the norms of society: the same norms mentioned earlier. These are how the generations before you chose to answer those questions that eventually became normalized. Just because something is ‘‘the norm’’ or ‘‘how things work’’ doesn’t mean it’s a bad thing, but it’s simply important to keep in mind that being neutral is ultimately, still an opinion. It doesn’t necessarily mean you agree with how things just are, but you aren’t challenging them either, and if you actively choose not to then you end up agreeing with them. It’s always fun to play these little philosophy games sometimes. Why do I have these beliefs? Did I come up with it myself, or did someone else tell me that this is worth believing, or that this is the opinion I should have? </p><p>I remember having a conversation with someone who argued that Jesus, the humble carpenter of Nazareth, might as well have been some leftwing radical of his day who started a political movement. Looking at it that way, even religion is political! It was an archaic form of politics: the politics of that time that has become mystified and turned into what we call religion. Perhaps our politics will become like that in the future too.</p><p>This is not an argument against political neutrality, but rather showing what that actually implies. So while politics may be disgusting, it also allows us to function as a society, and to challenge norms that may be proven harmful for many. It may bring out our inner smugness, ego, or superiority, but it also brings out the other passions, like love, bravery, and empathy. It is dangerous, but it is also a passionate subject that helps the generations after us. After all, politics really is everywhere.</p></div></section>
-</main><footer class="footer"><div><strong>Kontinenten</strong><p>A publication by Brännpunkt.<br></p></div><div><p>Gothenburg, Sweden<br>Independent student journalism<br>© 2026 Kontinenten</p></div></footer>
+<section class="article-view" id="cms-article" aria-label="Published article">
+  <button class="back" type="button" id="cms-back">← Back to section</button>
+  <header class="article-header"><span class="eyebrow" id="cms-article-category"></span><h2 id="cms-article-title"></h2><p class="lede" id="cms-article-summary"></p><p class="metadata" id="cms-article-author"></p></header>
+  <div class="article-body" id="cms-article-content"></div>
+</section>
+<section aria-label="Editorial newsroom" class="page" id="editor">
+  <header class="page-header"><span class="kicker">Private newsroom</span><h2>Editorial desk.</h2><p>Manage Kontinenten stories, saved drafts, editorial reviews and publication.</p></header>
+  <div class="editor-setup" id="editor-setup"><strong>Setup required</strong><p>Connect Microsoft Entra ID and Azure Cosmos DB following <code>SETUP.md</code>. The public website remains available while setup is incomplete.</p></div>
+  <section id="editor-login" class="editor-login" hidden=""><div class="editor-panel"><span class="eyebrow">Authorized editorial team only</span><h3>Sign in to the newsroom</h3><form id="editor-login-form"><button class="form-submit" type="submit">Sign in with Microsoft →</button></form><p class="form-notice" id="editor-login-message" role="status" aria-live="polite"></p><p class="small-print">Only editorial accounts approved by the administrator can access drafts and publication.</p></div></section>
+  <section id="editor-workspace" hidden="">
+    <div class="editor-toolbar"><div><span class="eyebrow">Kontinenten · Editorial control</span><p id="editor-identity" class="small-print"></p></div><div class="editor-actions"><button type="button" class="editor-secondary" id="editor-refresh">↻ Refresh</button><button type="button" class="editor-secondary" id="editor-logout">Sign out</button></div></div>
+    <div class="editor-stats" role="group" aria-label="Article statuses"><button class="editor-stat" data-filter="all" type="button"><b id="stat-all">0</b><span>All articles</span></button><button class="editor-stat" data-filter="draft" type="button"><b id="stat-draft">0</b><span>Saved drafts</span></button><button class="editor-stat" data-filter="review" type="button"><b id="stat-review">0</b><span>Under review</span></button><button class="editor-stat" data-filter="published" type="button"><b id="stat-published">0</b><span>Published</span></button></div>
+    <div class="editor-toolbar"><h3 class="editor-subhead">Article tracker</h3><button class="form-submit" id="editor-new" type="button">+ New article</button></div>
+    <div id="editor-message" role="status" aria-live="polite" class="editor-message"></div>
+    <div class="editor-table-wrap"><table class="editor-table"><thead><tr><th>Article</th><th>Author</th><th>Category</th><th>Status</th><th>Updated</th><th></th></tr></thead><tbody id="editor-rows"><tr><td colspan="6">Loading articles…</td></tr></tbody></table></div>
+    <section id="editor-edit-panel" class="editor-panel editor-edit-panel" hidden=""><div class="editor-toolbar"><h3 class="editor-subhead" id="editor-form-heading">New article</h3><button type="button" class="editor-secondary" id="editor-cancel">Close editor ×</button></div>
+      <form id="editor-article-form">
+        <div class="field-grid"><label class="form-field">Title *<input name="title" maxlength="220" required="" placeholder="Headline"></label><label class="form-field">Category *<select name="category" required=""><option value="opinion">Opinion</option><option value="report">Report</option><option value="interview">Interview</option></select></label></div>
+        <div class="field-grid"><label class="form-field">Author name *<input name="author_name" maxlength="120" required=""></label><label class="form-field">Featured on homepage?<select name="featured"><option value="false">No</option><option value="true">Yes</option></select></label></div>
+        <label class="form-field">Short summary *<textarea name="summary" rows="3" maxlength="600" required="" placeholder="Appears in the article list and under the headline"></textarea></label>
+        <label class="form-field">Full article *<textarea name="body" rows="15" maxlength="80000" required="" placeholder="Write here. Use **bold**, *italic*, and ## subheading. Separate paragraphs with a blank line."></textarea></label>
+        <p class="small-print">Formatting: <code>**bold**</code>, <code>*italic*</code>, <code>## Subheading</code>; press Enter twice for a new paragraph. HTML is displayed as plain text for safety.</p>
+        <div class="editor-actions editor-edit-actions"><button class="editor-secondary" type="button" id="editor-preview-toggle">Preview</button><button class="form-submit" type="button" id="editor-save-draft">Save draft</button><button class="editor-secondary" type="button" id="editor-send-review">Send for review</button><button class="form-submit" type="button" id="editor-publish" hidden="">Publish</button><button class="editor-secondary" type="button" id="editor-unpublish" hidden="">Unpublish</button></div>
+        <p id="editor-save-message" class="form-notice" role="status" aria-live="polite"></p>
+      </form>
+      <div id="editor-preview" class="editor-preview" hidden=""><span class="eyebrow">Preview · Not public</span><h2 id="editor-preview-title"></h2><p id="editor-preview-summary" class="lede"></p><div id="editor-preview-body" class="article-body"></div></div>
+    </section>
+  </section>
+</section>
+</main><footer class="footer"><div><strong>Kontinenten</strong><p>A publication by Brännpunkt.<br></p></div><div><p>Gothenburg, Sweden<br>Independent student journalism<br>© 2026 Kontinenten</p></div><div><button type="button" class="editor-footer-link" id="open-editor">Editorial login →</button></div></footer>
 </div>
 <script>
 const tabs = [...document.querySelectorAll('.nav-btn')];
 const pages = [...document.querySelectorAll('.page')];
 const articles = [...document.querySelectorAll('.article-view')];
-const validPages = ['home', 'opinions', 'interviews', 'reports', 'write-for-us', 'about'];
+const validPages = ['home', 'opinions', 'interviews', 'reports', 'write-for-us', 'about', 'editor'];
 const validArticles = ['ines', 'made-eu', 'swedish', 'politics'];
 let previousPage = 'opinions';
 
@@ -338,7 +404,7 @@ let previousPage = 'opinions';
 const siteNav = document.getElementById('site-nav');
 const menuToggle = siteNav.querySelector('.mobile-menu-toggle');
 const menuCurrent = siteNav.querySelector('.mobile-menu-current');
-const labelForPage = page => tabs.find(b => b.dataset.page === page)?.textContent.trim() || 'Home';
+const labelForPage = page => page === 'editor' ? 'Editorial desk' : (tabs.find(b => b.dataset.page === page)?.textContent.trim() || 'Home');
 function closeMobileMenu(){
   siteNav.classList.remove('menu-open');
   menuToggle.setAttribute('aria-expanded','false');
@@ -372,6 +438,7 @@ function navigate(section, updateHash = true) {
   window.scrollTo({ top: 0, behavior: 'instant' });
 }
 tabs.forEach(button => button.addEventListener('click', () => navigate(button.dataset.page)));
+document.getElementById('open-editor')?.addEventListener('click', () => navigate('editor'));
 document.querySelectorAll('[data-article]').forEach(button => button.addEventListener('click', () => {
   if (!validArticles.includes(button.dataset.article)) return;
   previousPage = document.querySelector('.page.active')?.id || (button.dataset.article === 'made-eu' ? 'reports' : 'opinions');
@@ -433,4 +500,7 @@ newsletterForm?.addEventListener('submit', event => {
     '\n\nI understand I may need to confirm my subscription later.\n\nThank you!');
 });
 </script>
+<script src="https://alcdn.msauth.net/browser/2.38.4/js/msal-browser.min.js"></script>
+<script src="./editor-config.js"></script>
+<script src="./editor.js" defer=""></script>
 </body></html>
