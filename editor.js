@@ -213,7 +213,7 @@
       showLogin(); msg('editor-login-message','Password changed. Sign in using your new password.');
     } catch(error){msg('editor-password-message',error.message);}
   });
-  $('editor-open-password')?.editor-login('click',showPasswordChange);
+  $('editor-open-password')?.addEventListener('click',showPasswordChange);
   $('editor-cancel-password')?.addEventListener('click',()=>{
     $('editor-change-panel').hidden=true;
     if (me?.must_change_password) {clearSession();showLogin();}
