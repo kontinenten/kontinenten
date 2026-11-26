@@ -184,7 +184,9 @@
     $('editor-change-panel').hidden=false;
   }
   $('editor-login-form')?.addEventListener('submit', async e => {
-    e.preventDefault(); msg('editor-login-message','Signing in…');
+    e.preventDefault();
+    const submittedForm = e.currentTarget;
+    msg('editor-login-message','Signing in…');
     const f=new FormData(e.currentTarget);
     try {
       const response=await fetch(`${config.apiBase}/editor/login`, {
@@ -194,22 +196,24 @@
       const data=await response.json();
       if (!response.ok) throw new Error(data.error || `Login failed (${response.status})`);
       sessionToken=data.token; sessionStorage.setItem('kontinenten_editor_session',sessionToken);
-      me=data.user; account=me; e.currentTarget.reset();
+      me=data.user; account=me; submittedForm.reset();
       msg('editor-login-message','');
       if (me.must_change_password) showPasswordChange(); else await refresh();
     } catch (error) { msg('editor-login-message',error.message); }
   });
   $('editor-password-form')?.addEventListener('submit',async e=>{
-    e.preventDefault(); msg('editor-password-message','Updating password…');
+    e.preventDefault();
+    const submittedForm = e.currentTarget;
+    msg('editor-password-message','Updating password…');
     const f=new FormData(e.currentTarget);
     if (f.get('new_password')!==f.get('confirm_password')) {msg('editor-password-message','New passwords do not match');return;}
     try {
       await api('/editor/change-password','POST',{old_password:f.get('old_password'),new_password:f.get('new_password')});
-      clearSession(); e.currentTarget.reset(); $('editor-change-panel').hidden=true;
+      clearSession(); submittedForm.reset(); $('editor-change-panel').hidden=true;
       showLogin(); msg('editor-login-message','Password changed. Sign in using your new password.');
     } catch(error){msg('editor-password-message',error.message);}
   });
-  $('editor-open-password')?.addEventListener('click',showPasswordChange);
+  $('editor-open-password')?.editor-login('click',showPasswordChange);
   $('editor-cancel-password')?.addEventListener('click',()=>{
     $('editor-change-panel').hidden=true;
     if (me?.must_change_password) {clearSession();showLogin();}
